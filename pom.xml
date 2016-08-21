@@ -92,24 +92,35 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.9</version>
         </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>com.github.warmuuh</groupId>-->
+            <!--<artifactId>libsass-maven-plugin</artifactId>-->
+            <!--<version>0.2.4-libsass_3.3.4</version>-->
+        <!--</dependency>-->
     </dependencies>
 
     <build>
         <finalName>Ipunagri</finalName>
         <plugins>
             <!--<plugin>-->
-                <!--<artifactId>maven-compiler-plugin</artifactId>-->
+                <!--<groupId>com.github.warmuuh</groupId>-->
+                <!--<artifactId>libsass-maven-plugin</artifactId>-->
+                <!--<version>0.2.4-libsass_3.3.4</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>generate-resources</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>compile</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
                 <!--<configuration>-->
-                    <!--<source>1.8</source>-->
-                    <!--<target>1.8</target>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-            <!--<plugin>-->
-                <!--<artifactId>maven-surefire-plugin</artifactId>-->
-                <!--<configuration>-->
-                    <!--<includes>-->
-                        <!--<include>**/*Tests.java</include>-->
-                    <!--</includes>-->
+                    <!--<inputPath>${project.basedir}/src/main/webapp/resources/sass/</inputPath>-->
+                    <!--<outputPath>${project.basedir}/target/Ipunagri/resources/css/</outputPath>-->
+                    <!--<outputStyle>compressed</outputStyle>-->
+                    <!--<inputSyntax>sass</inputSyntax>-->
+                    <!--<failOnError>true</failOnError>-->
                 <!--</configuration>-->
             <!--</plugin>-->
         </plugins>
