@@ -28,7 +28,7 @@
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/spring_users"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/ipu_nagri"/>
         <property name="username" value="root"/>
         <property name="password" value=""/>
     </bean>
@@ -45,7 +45,7 @@
         </property>
         <property name="annotatedClasses">
             <list>
-
+                <value>org.ipunagri.models.PDFLink</value>
             </list>
         </property>
     </bean>
@@ -67,6 +67,5 @@
     <mvc:resources mapping="/css/**" location="/resources/css/"/>
     <mvc:resources mapping="/js/**" location="/resources/js/"/>
     <mvc:resources mapping="/images/**" location="/resources/images/"/>
-    <!--<mvc:resources mapping="/resources/**" location="/resources/"/>-->
 
 </beans>

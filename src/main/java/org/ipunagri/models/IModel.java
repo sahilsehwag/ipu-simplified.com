@@ -1,5 +1,5 @@
 package org.ipunagri.models;
 
 
-public abstract class Model {
+public interface IModel {
 }
