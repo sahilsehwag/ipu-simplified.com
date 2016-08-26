@@ -24,8 +24,8 @@ public class PDFLink {
     @Column(name="PDF_TYPE")
     private String pdfType;
 
-    @Column(name="DESCRIPTION")
-    private String description;
+    @Column(name="NAME")
+    private String name;
 
     @Column(name="URL")
     private URL url;
@@ -38,9 +38,9 @@ public class PDFLink {
     public PDFLink() {
     }
 
-    public PDFLink(String pdfType, String description, URL url, Date uploadDate) {
+    public PDFLink(String pdfType, String name, URL url, Date uploadDate) {
         this.pdfType = pdfType;
-        this.description = description;
+        this.name = name;
         this.url = url;
         this.uploadDate = uploadDate;
     }
@@ -54,12 +54,12 @@ public class PDFLink {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    public String getName() {
+        return name;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public URL getUrl() {

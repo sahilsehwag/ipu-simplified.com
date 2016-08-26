@@ -7,13 +7,13 @@ import java.util.Calendar;
 public class ParsedRow {
 
     private Calendar date;
-    private String[] nameTokens;
+    private String name;
     private URL url;
 
 
-    public ParsedRow(Calendar date, String[] nameTokens, URL url) {
+    public ParsedRow(Calendar date, String name, URL url) {
         this.date = date;
-        this.nameTokens = nameTokens;
+        this.name = name;
         this.url = url;
     }
 
@@ -25,12 +25,12 @@ public class ParsedRow {
         this.date = date;
     }
 
-    public String[] getNameTokens() {
-        return nameTokens;
+    public String getName() {
+        return name;
     }
 
-    public void setNameTokens(String[] nameTokens) {
-        this.nameTokens = nameTokens;
+    public void setName(String name) {
+        this.name= name;
     }
 
     public URL getUrl() {

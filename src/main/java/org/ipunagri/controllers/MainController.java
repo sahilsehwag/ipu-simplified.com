@@ -21,8 +21,8 @@ import java.net.URL;
 public class MainController {
 
     @RequestMapping(value="", method=RequestMethod.GET)
-    public String landing(HttpSession session, Model model) throws MalformedURLException{
-        return "index";
+    public String landing(HttpSession session, Model model){
+        return "downloads";
     }
 
     @RequestMapping(value="index", method=RequestMethod.GET)
