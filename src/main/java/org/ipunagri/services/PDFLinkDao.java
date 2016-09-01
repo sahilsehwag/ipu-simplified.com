@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @NamedQueries({
-        @NamedQuery(name="getRowsByPDFType", query="FROM PDFLink AS pdf WHERE pdf.pdfType = :pdfType")
+        @NamedQuery(name="getRowsByPDFType", query="FROM PDFLink AS pdf WHERE pdf.pdfType = :pdfType"),
 })
 public class PDFLinkDao extends Dao{
 

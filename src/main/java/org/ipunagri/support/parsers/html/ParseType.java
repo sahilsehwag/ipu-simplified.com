@@ -30,9 +30,13 @@ public enum ParseType {
     private URL pdfBaseURL;
     private Pattern regex;
 
-    ParseType(String url, String pdfBaseURL, Pattern regex) throws MalformedURLException {
-        this.url = new URL(url);
-        this.pdfBaseURL = new URL(pdfBaseURL);
+    ParseType(String url, String pdfBaseURL, Pattern regex) {
+        try{
+            this.url = new URL(url);
+            this.pdfBaseURL = new URL(pdfBaseURL);
+        }catch(MalformedURLException e){
+            e.printStackTrace();
+        }
         this.regex = regex;
     }
 

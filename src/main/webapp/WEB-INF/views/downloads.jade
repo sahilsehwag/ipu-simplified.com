@@ -1,3 +1,19 @@
 extends layouts/layout
 
 block main
+	div(ng-app='app')
+		#tabs-container(ng-controller='mainController')
+			.container(layout='column')
+				md-tabs
+					md-tab
+						md-tab-label NOTICES
+						md-tab-body
+						h1 HELLO NOTICES
+					md-tab
+						md-tab-label RESULTS
+						md-tab-body
+							h1 HELLO RESULTS
+					md-tab
+						md-tab-label DATESHEETS
+						md-tab-body
+							h1 HELLO DATESHEETS

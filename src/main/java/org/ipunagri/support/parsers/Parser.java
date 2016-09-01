@@ -1,6 +1,8 @@
 package org.ipunagri.support.parsers;
 
 
+import org.ipunagri.support.models.ParsedRow;
+
 import java.io.File;
 import java.net.URL;
 
@@ -12,8 +14,6 @@ public abstract class Parser {
 
 
     protected abstract File download(URL url);
-    protected abstract String parse();
-
-//    protected abstract String nameGenerator();
+    protected abstract Object parse();
 
 }

@@ -112,6 +112,12 @@
             <version>0.2.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.batch</groupId>
+            <artifactId>spring-batch-core</artifactId>
+            <version>3.0.7.RELEASE</version>
+        </dependency>
+
         <!--<dependency>-->
             <!--<groupId>com.github.warmuuh</groupId>-->
             <!--<artifactId>libsass-maven-plugin</artifactId>-->
