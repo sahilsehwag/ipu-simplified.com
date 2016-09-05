@@ -2388,3 +2388,95 @@ hr {
   border-right: 0;
   border-top: 0;
   margin: 1.5em 0; }
+
+body {
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif; }
+
+main {
+  padding-top: 3px;
+  padding-bottom: 3px; }
+
+md-sidenav {
+  background-color: #222222;
+  width: 18%; }
+  md-sidenav .sidenav-logo {
+    margin-top: 7%;
+    font-size: 24px; }
+    md-sidenav .sidenav-logo h1 {
+      color: white;
+      text-align: center; }
+  md-sidenav .sidenav-item-container {
+    transform: translateY(-10%); }
+    md-sidenav .sidenav-item-container .sidenav-item {
+      text-align: center;
+      padding-top: 0.5%;
+      padding-bottom: 0.5%; }
+      md-sidenav .sidenav-item-container .sidenav-item .md-raised {
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        border-radius: 0px;
+        font-weight: 600; }
+
+#app-menu {
+  position: absolute;
+  box-shadow: 1px 0px 3px 3px rgba(0, 0, 0, 0.2);
+  height: 55px;
+  left: 0px;
+  top: 0px;
+  padding-left: 2%;
+  padding-right: 2%;
+  z-index: 15; }
+  #app-menu .md-toolbar-tools .md-button.md-fab.md-mini {
+    background-color: transparent !important; }
+
+.md-button.md-fab.md-mini.sidenav-openor {
+  position: fixed;
+  left: 10px;
+  top: 7px;
+  background-color: transparent !important;
+  box-shadow: none; }
+
+footer {
+  background-color: #222;
+  color: rgba(239, 239, 239, 0.9);
+  padding-top: 6%;
+  padding-bottom: 6%;
+  box-shadow: -1px 0px 3px 3px rgba(0, 0, 0, 0.3); }
+  footer .col:nth-child(2),
+  footer .col:nth-child(3) {
+    border-color: rgba(220, 220, 220, 0.4);
+    border-left-width: 1px;
+    border-right-width: 0px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-style: solid; }
+  footer .container .col {
+    font-weight: 600;
+    text-align: center; }
+    footer .container .col .title {
+      font-size: 1.1em;
+      margin-bottom: 15px; }
+    footer .container .col .link {
+      font-size: 0.9em; }
+
+header {
+  position: relative;
+  height: 80%;
+  overflow: hidden;
+  box-shadow: 1px 0px 3px 3px rgba(0, 0, 0, 0.3);
+  background-image: url("http://greenywallpapers.com/wallpapers/1/18241-bird-nest-beijing-national-wallpapers-1920x1080.jpg");
+  background-position: center center; }
+  header h1 {
+    text-align: center;
+    color: white;
+    font-size: 4em;
+    z-index: 10; }
+  header .overlay {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 5; }

@@ -1,8 +1,8 @@
 (function() {
-  var app, mainController;
+  var app, downloadsController;
 
   app = angular.module('app');
 
-  mainController = app.controller('mainController', function() {});
+  downloadsController = app.controller('downloadsController', function($scope, $rootScope) {});
 
 }).call(this);

@@ -1,0 +1,15 @@
+md-button.md-fab.md-mini.sidenav-openor(ng-click='$parent.openMainMenu()')
+	md-icon(md-svg-src='images/icons/sidenav.svg')
+
+md-sidenav(md-component-id='main-menu' md-is-open='2 == 1' layout='column' layout-align='start stretch')
+	.sidenav-logo
+		h1 LOGO
+	.sidenav-item-container(layout='column' layout-align='center stretch' flex="grow")
+		.sidenav-item
+			md-button.md-primary.md-raised(ng-href='/results') GET YOUR RESULT
+		.sidenav-item
+			md-button.md-primary.md-raised(ng-href='/downloads') DOWNLOADS
+		.sidenav-item
+			md-button.md-primary.md-raised(ng-href='/datesheets') DATESHEETS
+		.sidenav-item
+			md-button.md-primary.md-raised(ng-href='/notices') NOTICES

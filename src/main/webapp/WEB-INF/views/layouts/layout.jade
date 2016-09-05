@@ -1,6 +1,9 @@
 html
 	include head.jade
-	body
+	body(ng-app='app' ng-controller='mainController')
+		include appmenu.jade
+		include menu.jade
+
 		include header.jade
 
 		main

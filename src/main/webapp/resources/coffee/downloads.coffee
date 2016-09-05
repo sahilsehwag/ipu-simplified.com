@@ -1,4 +1,9 @@
 #define(['angular'], (angular) ->
-    app = angular.module('app')
-    mainController = app.controller('mainController', () ->)
+
 #)
+
+
+app = angular.module('app')
+downloadsController = app.controller('downloadsController', ($scope, $rootScope) ->
+
+)

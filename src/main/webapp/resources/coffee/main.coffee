@@ -1,5 +1,43 @@
+app = angular.module('app', ['ngRoute', 'ngMaterial'])
+
+mainController = app.controller('mainController', ($scope, $rootScope, $mdSidenav)->
+    $rootScope.openMainMenu = () ->
+        $mdSidenav('main-menu').toggle()
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #define(['jquery', 'angular' , 'angular-material'], (jquery, angular, material) ->
-    app = angular.module('app', ['ngRoute', 'ngMaterial'])
 #)
 
 
