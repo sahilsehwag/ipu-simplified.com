@@ -2392,26 +2392,36 @@ hr {
 body {
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif; }
 
-main {
-  padding-top: 3px;
-  padding-bottom: 3px; }
-
 md-sidenav {
   background-color: #222222;
   width: 18%; }
   md-sidenav .sidenav-logo {
-    margin-top: 7%;
+    height: 20%;
     font-size: 24px; }
     md-sidenav .sidenav-logo h1 {
       color: white;
       text-align: center; }
   md-sidenav .sidenav-item-container {
-    transform: translateY(-10%); }
-    md-sidenav .sidenav-item-container .sidenav-item {
+    height: 100%; }
+    md-sidenav .sidenav-item-container .menu-container .sidenav-item {
       text-align: center;
-      padding-top: 0.5%;
-      padding-bottom: 0.5%; }
-      md-sidenav .sidenav-item-container .sidenav-item .md-raised {
+      padding-top: 0.8%;
+      padding-bottom: 0.8%;
+      padding-left: 0.8%;
+      padding-right: 0.8%; }
+      md-sidenav .sidenav-item-container .menu-container .sidenav-item .md-button.md-raised {
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        border-radius: 0px;
+        font-weight: 600; }
+    md-sidenav .sidenav-item-container form.sidenav-item {
+      padding-left: 10px;
+      padding-right: 10px; }
+      md-sidenav .sidenav-item-container form.sidenav-item input[type] {
+        border-radius: 0px !important;
+        font-size: 0.95em; }
+      md-sidenav .sidenav-item-container form.sidenav-item .buttons .md-button {
         width: 100%;
         padding: 0px;
         margin: 0px;
@@ -2442,7 +2452,8 @@ footer {
   color: rgba(239, 239, 239, 0.9);
   padding-top: 6%;
   padding-bottom: 6%;
-  box-shadow: -1px 0px 3px 3px rgba(0, 0, 0, 0.3); }
+  box-shadow: -1px 0px 3px 3px rgba(0, 0, 0, 0.3);
+  margin-top: 2%; }
   footer .col:nth-child(2),
   footer .col:nth-child(3) {
     border-color: rgba(220, 220, 220, 0.4);

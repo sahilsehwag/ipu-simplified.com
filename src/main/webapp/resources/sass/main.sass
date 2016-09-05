@@ -8,11 +8,6 @@
 body
     font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif
 
-main
-    padding:
-        top: 3px
-        bottom: 3px
-
 
 md-sidenav
     background:
@@ -20,26 +15,43 @@ md-sidenav
     width: 18%
 
     .sidenav-logo
-        margin:
-            top: 7%
+        height: 20%
         font-size: 24px
         h1
             color: white
             text-align: center
 
     .sidenav-item-container
-        transform: translateY(-10%)
-        .sidenav-item
-            text-align: center
+        height: 100%
+        .menu-container
+            .sidenav-item
+                text-align: center
+                padding:
+                    top: 0.8%
+                    bottom: 0.8%
+                    left: 0.8%
+                    right: 0.8%
+                .md-button.md-raised
+                    width: 100%
+                    padding: 0px
+                    margin: 0px
+                    border-radius: 0px
+                    font-weight: 600
+
+        form.sidenav-item
             padding:
-                top: 0.5%
-                bottom: 0.5%
-            .md-raised
-                width: 100%
-                padding: 0px
-                margin: 0px
-                border-radius: 0px
-                font-weight: 600
+                left: 10px
+                right: 10px
+            input[type]
+                border-radius: 0px !important
+                font-size: 0.95em
+            .buttons
+                .md-button
+                    width: 100%
+                    padding: 0px
+                    margin: 0px
+                    border-radius: 0px
+                    font-weight: 600
 
 
 #app-menu
@@ -78,6 +90,8 @@ footer
         top: 6%
         bottom: 6%
     box-shadow: -1px 0px 3px 3px rgba(0,0,0,0.3)
+    margin:
+        top: 2%
 
     .col:nth-child(2),
     .col:nth-child(3)
