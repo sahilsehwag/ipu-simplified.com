@@ -10,15 +10,15 @@ import java.util.regex.Pattern;
 public enum ParseType {
 
     RESULT("http://164.100.158.135/ExamResults/ExamResultsmain.htm",
-            "http://164.100.158.135/ExamResults/",
+            "http://164.100.158.135/ExamResults",
             Regexes.IPU_PDF.getRegex()),
 
     NOTICE("http://ipu.ac.in/exam_notices.php",
-            "http://ggsipuresults.nic.in/ipu/examnotice/",
+            "http://ggsipuresults.nic.in/ipu/examxnotice",
             Regexes.IPU_PDF.getRegex()),
 
     DATESHEET("http://ipu.ac.in/exam_datesheet.php",
-            "http://ipu.ac.in/public/ExamDatesheets/",
+            "http://ipu.ac.in/public/ExamDatesheets",
             Regexes.IPU_PDF.getRegex()),
 
     CET_RESULT("",
@@ -40,4 +40,27 @@ public enum ParseType {
         this.regex = regex;
     }
 
+    public URL getUrl() {
+        return url;
+    }
+
+    public void setUrl(URL url) {
+        this.url = url;
+    }
+
+    public URL getPdfBaseURL() {
+        return pdfBaseURL;
+    }
+
+    public void setPdfBaseURL(URL pdfBaseURL) {
+        this.pdfBaseURL = pdfBaseURL;
+    }
+
+    public Pattern getRegex() {
+        return regex;
+    }
+
+    public void setRegex(Pattern regex) {
+        this.regex = regex;
+    }
 }

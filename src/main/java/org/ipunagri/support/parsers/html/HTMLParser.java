@@ -3,35 +3,42 @@ package org.ipunagri.support.parsers.html;
 
 import org.ipunagri.support.parsers.Parser;
 
-import javax.imageio.stream.FileCacheImageOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.URL;
-import java.net.URLConnection;
 
-public abstract class HTMLParser extends Parser{
+public abstract class HTMLParser extends Parser {
 
     @Override
-    protected File download(URL url) {
-        try {
+    protected String download(URL url) {
+        String lines = null;
 
-            URLConnection connection = url.openConnection();
-            InputStream htmlStream = connection.getInputStream();
-            FileOutputStream htmlFile = new FileOutputStream(HTMLParser.class.getResource("temp.html").getFile());
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(url.openStream()))) {
 
-            while(htmlStream.available() == 0){
-                htmlFile.write(htmlStream.read());
+            StringBuilder stringBuilder = new StringBuilder();
+            String ls = System.getProperty("line.separator");
+
+            while ((lines = br.readLine()) != null) {
+                stringBuilder.append(lines);
+                stringBuilder.append(ls);
             }
+            lines = stringBuilder.toString();
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return lines;
     }
 
-    protected boolean validHTMLUrl(){
+    protected String makeURLAbsolute(String url, String baseURL) {
+        url = url.trim();
+        if (url.charAt(0) == '/')
+            url = baseURL + url;
+        return url;
+    }
+
+    protected boolean validHTMLUrl() {
         return false;
     }
 }

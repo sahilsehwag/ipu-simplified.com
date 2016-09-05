@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public enum Regexes {
 
 
-    IPU_PDF(""),
+    IPU_PDF("<tr[^<>]*?>\\s*?\\n\\s*?<td><a\\s*?href=\"([^\"]*?)\">([^<>]*?)</a></td>\\s*?\\n\\s*?<td>([\\d-]*?)</td>\\s*?\\n\\s*?</tr>\\s*?"),
     CET_RESULT(""),
     PDF_RESULT(""),
     PDF_SUBJECTS(""),
