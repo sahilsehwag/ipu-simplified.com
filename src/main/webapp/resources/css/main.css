@@ -2392,6 +2392,10 @@ hr {
 body {
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif; }
 
+main {
+  margin-bottom: 2%;
+  min-height: 100%; }
+
 md-sidenav {
   background-color: #222222;
   width: 18%; }
@@ -2477,7 +2481,8 @@ header {
   overflow: hidden;
   box-shadow: 1px 0px 3px 3px rgba(0, 0, 0, 0.3);
   background-image: url("http://greenywallpapers.com/wallpapers/1/18241-bird-nest-beijing-national-wallpapers-1920x1080.jpg");
-  background-position: center center; }
+  background-position: center center;
+  margin-bottom: 2%; }
   header h1 {
     text-align: center;
     color: white;

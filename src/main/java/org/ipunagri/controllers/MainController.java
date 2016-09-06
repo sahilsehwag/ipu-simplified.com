@@ -27,17 +27,22 @@ public class MainController {
 
     @RequestMapping(value="index", method=RequestMethod.GET)
     public String index(){
-        return "index";
+        return "under-development";
     }
 
     @RequestMapping(value="results", method=RequestMethod.GET)
     public String results(){
-        return "results";
+        return "under-development";
     }
 
     @RequestMapping(value="downloads", method=RequestMethod.GET)
     public String downloads(){
         return "downloads";
+    }
+
+    @RequestMapping(value="notices", method=RequestMethod.GET)
+    public String notices(){
+        return "under-development";
     }
 
     @RequestMapping("*")

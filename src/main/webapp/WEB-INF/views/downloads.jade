@@ -2,7 +2,7 @@ extends layouts/layout
 
 
 block main
-	div
+	div(layout='column')
 		#tabs-container(ng-controller='downloadsController')
 			.container(layout='column')
 				md-tabs
