@@ -1,0 +1,28 @@
+#tabs-container {
+  width: 100%;
+  padding-top: 30px;
+  margin-left: auto;
+  margin-right: auto; }
+  #tabs-container md-tabs {
+    height: 100%; }
+    #tabs-container md-tabs .md-tab {
+      font-weight: 600; }
+    #tabs-container md-tabs md-tabs-content-wrapper {
+      height: 100%;
+      width: auto; }
+    #tabs-container md-tabs md-tab-content {
+      width: 70%;
+      padding-left: 5%;
+      padding-right: 5%;
+      padding-bottom: 2%;
+      margin-top: 2%;
+      margin-top: 2%; }
+
+td {
+  font-size: 0.9em; }
+
+td:nth-child(0n+1) {
+  font-weight: 600; }
+
+md-tab-content {
+  background-color: rgba(248, 248, 248, 0.5); }
