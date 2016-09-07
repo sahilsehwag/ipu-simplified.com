@@ -2,10 +2,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
 
     <context:component-scan base-package="org.ipunagri.controllers"/>
 
@@ -50,22 +51,25 @@
         </property>
     </bean>
 
-    <!--<bean nameTokens="openSessionInViewInterceptor"-->
-          <!--class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor">-->
-        <!--<property nameTokens="sessionFactory">-->
-            <!--<ref bean="sessionFactory" />-->
-        <!--</property>-->
-        <!--<property nameTokens="flushModeName" value="FLUSH_AUTO" />-->
-    <!--</bean>-->
 
-    <!--<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">-->
-        <!--<property nameTokens="sessionFactory" ref="sessionFactory" />-->
-    <!--</bean>-->
+
+    <bean id="pdfLinksDAO" class="org.ipunagri.services.PDFLinkDao"></bean>
+    <bean id="tasks" class="org.ipunagri.support.tasks.PDFLinkExtractionTask"></bean>
 
 
     <mvc:annotation-driven/>
     <mvc:resources mapping="/css/**" location="/resources/css/"/>
     <mvc:resources mapping="/js/**" location="/resources/js/"/>
     <mvc:resources mapping="/images/**" location="/resources/images/"/>
+    
+    
+    <task:annotation-driven/>
+
+    <task:scheduled-tasks>
+        <task:scheduled ref="tasks" method="getResultPDFLinks" fixed-rate="900000"/>
+        <task:scheduled ref="tasks" method="getNoticePDFLinks" fixed-rate="900000"/>
+        <task:scheduled ref="tasks" method="getDatesheetPDFLinks" fixed-rate="900000"/>
+    </task:scheduled-tasks>
+
 
 </beans>
