@@ -4,33 +4,33 @@ package org.ipunagri.models;
 import javax.persistence.*;
 import java.net.URL;
 import java.util.Date;
-import javax.persistence.Table;
 
 
-@Entity(name="PDF_LINKS")
-@Table(name="PDF_LINKS")
-public class PDFLink {
+@Entity(name = "PDF_LINKS")
+@Table(name = "PDF_LINKS")
+public class PDFLink implements IModel {
 
-    private static String RESULT = "RESULT";
-    private static String NOTICE = "NOTICE";
-    private static String DATESHEET = "DATESHEET";
-    private static String CETRESULT = "CETRESULT";
+    public static String RESULT = "RESULT";
+    public static String NOTICE = "NOTICE";
+    public static String DATESHEET = "DATESHEET";
+    public static String CETRESULT = "CETRESULT";
 
 
     @Id
     @GeneratedValue
+    @Column(name = "ID")
     private int id;
 
-    @Column(name="PDF_TYPE")
+    @Column(name = "PDF_TYPE")
     private String pdfType;
 
-    @Column(name="NAME")
+    @Column(name = "NAME")
     private String name;
 
-    @Column(name="URL")
+    @Column(name = "URL")
     private URL url;
 
-    @Column(name="UPLOAD_DATE")
+    @Column(name = "UPLOAD_DATE")
     @Temporal(TemporalType.DATE)
     private Date uploadDate;
 

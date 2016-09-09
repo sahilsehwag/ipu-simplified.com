@@ -13,17 +13,21 @@ public enum ParseType {
             "http://164.100.158.135/ExamResults",
             Regexes.IPU_PDF.getRegex()),
 
+    OLD_RESULTS("http://ipu.ac.in/exam_results.php",
+                "http://ipu.ac.in",
+                Regexes.IPU_PDF.getRegex()),
+
     NOTICE("http://ipu.ac.in/exam_notices.php",
-            "http://ggsipuresults.nic.in/ipu/examxnotice",
+            "http://ipu.ac.in",
             Regexes.IPU_PDF.getRegex()),
 
     DATESHEET("http://ipu.ac.in/exam_datesheet.php",
-            "http://ipu.ac.in/public/ExamDatesheets",
-            Regexes.IPU_PDF.getRegex()),
+            "http://ipu.ac.in",
+            Regexes.IPU_PDF.getRegex());
 
-    CET_RESULT("",
-            "",
-            Regexes.CET_RESULT.getRegex());
+//    CET_RESULT("",
+//            "",
+//            Regexes.CET_RESULT.getRegex());
 
 
     private URL url;
@@ -35,6 +39,7 @@ public enum ParseType {
             this.url = new URL(url);
             this.pdfBaseURL = new URL(pdfBaseURL);
         }catch(MalformedURLException e){
+            System.out.println(url.toString());
             e.printStackTrace();
         }
         this.regex = regex;

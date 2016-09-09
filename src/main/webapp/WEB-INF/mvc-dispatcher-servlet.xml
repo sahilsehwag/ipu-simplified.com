@@ -11,20 +11,19 @@
     <context:component-scan base-package="org.ipunagri.controllers"/>
 
     <bean id="templateLoader" class="de.neuland.jade4j.spring.template.SpringTemplateLoader">
-        <property name="basePath" value="/WEB-INF/views/" />
+        <property name="basePath" value="/WEB-INF/views/"/>
     </bean>
 
     <bean id="jadeConfiguration" class="de.neuland.jade4j.JadeConfiguration">
-        <property name="prettyPrint" value="false" />
-        <property name="caching" value="false" />
-        <property name="templateLoader" ref="templateLoader" />
+        <property name="prettyPrint" value="false"/>
+        <property name="caching" value="false"/>
+        <property name="templateLoader" ref="templateLoader"/>
     </bean>
 
     <bean id="viewResolver" class="de.neuland.jade4j.spring.view.JadeViewResolver">
-        <property name="configuration" ref="jadeConfiguration" />
-        <property name="renderExceptions" value="true" />
+        <property name="configuration" ref="jadeConfiguration"/>
+        <property name="renderExceptions" value="true"/>
     </bean>
-    
 
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -51,9 +50,14 @@
         </property>
     </bean>
 
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
+        <constructor-arg ref="sessionFactory"></constructor-arg>
+    </bean>
 
+    <bean id="pdfLinkDao" class="org.ipunagri.services.PDFLinkDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
-    <bean id="pdfLinksDAO" class="org.ipunagri.services.PDFLinkDao"></bean>
     <bean id="tasks" class="org.ipunagri.support.tasks.PDFLinkExtractionTask"></bean>
 
 
@@ -61,8 +65,8 @@
     <mvc:resources mapping="/css/**" location="/resources/css/"/>
     <mvc:resources mapping="/js/**" location="/resources/js/"/>
     <mvc:resources mapping="/images/**" location="/resources/images/"/>
-    
-    
+
+
     <task:annotation-driven/>
 
     <task:scheduled-tasks>

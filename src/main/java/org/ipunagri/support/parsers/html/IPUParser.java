@@ -3,10 +3,12 @@ package org.ipunagri.support.parsers.html;
 
 import org.ipunagri.support.models.ParsedRow;
 
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,35 +19,52 @@ public class IPUParser extends HTMLParser {
     private ParseType pdfType;
 
     public IPUParser(ParseType pdfType) {
+
+        rows = new ArrayList();
+
         this.url = pdfType.getUrl();
         this.pdfType = pdfType;
     }
 
-    private void generateRows() {
+    public void generateRows() {
 
         String lines = download(url);
+        Date uploadDate = null;
 
         Pattern pattern = pdfType.getRegex();
         Matcher matcher = pattern.matcher(lines);
 
         while (matcher.find()) {
-            String date[] = matcher.group(3).split("-");
+            String date = matcher.group(3);
 
-            Calendar uploadDate =
-                    new GregorianCalendar(Integer.parseInt(date[2]),
-                            Integer.parseInt(date[1]),
-                            Integer.parseInt(date[0]));
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
-            String url = makeURLAbsolute(matcher.group(1), pdfType.getPdfBaseURL().getPath());
+            Calendar c = Calendar.getInstance();
 
             try {
-                ParsedRow row = new ParsedRow(uploadDate, matcher.group(2), new URL(url));
-                rows.add(row);
-            } catch (MalformedURLException e) {
+                c.setTime(sdf.parse(date));
+            } catch (ParseException e) {
                 e.printStackTrace();
             }
 
+            uploadDate = c.getTime();
+
+
+            if (uploadDate.after(lastFetchDate) || uploadDate.equals(lastFetchDate)) {
+
+                String url = makeURLAbsolute(matcher.group(1), pdfType.getPdfBaseURL().toString());
+
+                try {
+
+                    URL p = new URL(url);
+                    ParsedRow row = new ParsedRow(uploadDate, matcher.group(2), p);
+                    rows.add(row);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
+        lastFetchDate = new Date();
     }
 
 

@@ -2,18 +2,22 @@ package org.ipunagri.services;
 
 import org.hibernate.SessionFactory;
 import org.ipunagri.models.IModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 
 import java.io.Serializable;
 import java.util.Collection;
 
 
-abstract class Dao<T extends IModel> implements IDao<T>{
+abstract class Dao<T extends IModel> implements IDao<T> {
 
+    @Autowired
     protected HibernateTemplate hibernateTemplate;
+    @Autowired
     protected SessionFactory sessionFactory;
 
-    public Dao(){}
+    public Dao() {
+    }
 
     @Override
     public void save(T object) {
@@ -45,9 +49,19 @@ abstract class Dao<T extends IModel> implements IDao<T>{
         hibernateTemplate.deleteAll(objects);
     }
 
-    public void setSessionFactory(SessionFactory sessionFactory){
-        this.sessionFactory = sessionFactory;
-        hibernateTemplate = new HibernateTemplate(this.sessionFactory);
+    public HibernateTemplate getHibernateTemplate() {
+        return hibernateTemplate;
     }
 
+    public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+        this.hibernateTemplate = hibernateTemplate;
+    }
+
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 }

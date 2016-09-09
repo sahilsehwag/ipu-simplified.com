@@ -9,6 +9,7 @@ import java.net.URL;
 
 public abstract class HTMLParser extends Parser {
 
+
     @Override
     protected String download(URL url) {
         String lines = null;
@@ -32,9 +33,16 @@ public abstract class HTMLParser extends Parser {
     }
 
     protected String makeURLAbsolute(String url, String baseURL) {
+
         url = url.trim();
-        if (url.charAt(0) == '/')
+
+        if (url.substring(0, 12).equals("/ExamResults"))
+            url = "http://164.100.158.135" + url;
+
+
+        else if (url.charAt(0) == '/')
             url = baseURL + url;
+
         return url;
     }
 
