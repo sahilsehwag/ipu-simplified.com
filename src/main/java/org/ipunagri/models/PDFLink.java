@@ -2,13 +2,21 @@ package org.ipunagri.models;
 
 
 import javax.persistence.*;
+import javax.persistence.Entity;
 import java.net.URL;
 import java.util.Date;
 
 
-@Entity(name = "PDF_LINKS")
+@Entity
 @Table(name = "PDF_LINKS")
-public class PDFLink implements IModel {
+@NamedQueries({
+        @NamedQuery(name = "getRowsByPDFType", query = "FROM PDFLink AS pdf WHERE pdf.pdfType = :pdfType"),
+        @NamedQuery(name = "getRowsByDateRange", query = "FROM PDFLink AS pdf WHERE (pdf.uploadDate >= :startDate and pdf.uploadDate <= :endDate)"),
+})
+@NamedNativeQueries({
+        @NamedNativeQuery(name="PDFLink.byPDFTypeInRange", query="SELECT * FROM PDF_LINKS WHERE PDF_TYPE = :pdfType LIMIT :start, :end", resultClass=PDFLink.class)
+})
+public class PDFLink implements IModel{
 
     public static String RESULT = "RESULT";
     public static String NOTICE = "NOTICE";
@@ -25,8 +33,10 @@ public class PDFLink implements IModel {
     private String pdfType;
 
     @Column(name = "NAME")
+    @Lob
     private String name;
 
+    @Lob
     @Column(name = "URL")
     private URL url;
 

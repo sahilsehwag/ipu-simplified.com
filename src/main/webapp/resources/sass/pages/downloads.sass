@@ -5,24 +5,29 @@
         left: auto
         right: auto
     md-tabs
-        height: 100%
+        height: 160%
         .md-tab
             font-weight: 600
         md-tabs-content-wrapper
             height: 100%
             width: auto
         md-tab-content
-            width: 70%
+            width: 90%
             padding:
                 left: 5%
                 right: 5%
-                bottom: 2%
+                bottom: 5%
             margin:
                 top: 2%
                 top: 2%
 
-td
+td,
+th
     font-size: 0.9em
+    &:nth-of-type(2)
+        padding:
+            left: 20px
+    text-align: center
 td:nth-child(0n+1)
     font-weight: 600
 

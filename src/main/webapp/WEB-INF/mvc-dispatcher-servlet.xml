@@ -70,10 +70,11 @@
     <task:annotation-driven/>
 
     <task:scheduled-tasks>
-        <task:scheduled ref="tasks" method="getResultPDFLinks" fixed-rate="900000"/>
+        <task:scheduled ref="tasks" method="getOldResultPDFLinks" fixed-rate="900000"/>
         <task:scheduled ref="tasks" method="getNoticePDFLinks" fixed-rate="900000"/>
+        <task:scheduled ref="tasks" method="getResultPDFLinks" fixed-rate="900000"/>
         <task:scheduled ref="tasks" method="getDatesheetPDFLinks" fixed-rate="900000"/>
+        <task:scheduled ref="tasks" method="updateLastFetchDate" fixed-rate="900000"/>
     </task:scheduled-tasks>
-
 
 </beans>

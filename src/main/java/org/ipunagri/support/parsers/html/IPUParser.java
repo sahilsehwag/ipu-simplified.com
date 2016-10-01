@@ -34,8 +34,11 @@ public class IPUParser extends HTMLParser {
         Pattern pattern = pdfType.getRegex();
         Matcher matcher = pattern.matcher(lines);
 
+        int counter = 0;
         while (matcher.find()) {
             String date = matcher.group(3);
+
+            String match = matcher.group();
 
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
@@ -55,16 +58,16 @@ public class IPUParser extends HTMLParser {
                 String url = makeURLAbsolute(matcher.group(1), pdfType.getPdfBaseURL().toString());
 
                 try {
-
                     URL p = new URL(url);
                     ParsedRow row = new ParsedRow(uploadDate, matcher.group(2), p);
                     rows.add(row);
                 } catch (Exception e) {
+                    counter++;
                     e.printStackTrace();
                 }
             }
         }
-        lastFetchDate = new Date();
+        System.out.println("...................Count: " + counter + "...................");
     }
 
 
