@@ -29,5 +29,8 @@ th {
 td:nth-child(0n+1) {
   font-weight: 600; }
 
-md-tab-content {
-  background-color: rgba(248, 248, 248, 0.5); }
+.pagination {
+  font-size: 1.4em; }
+
+html.md-default-theme, html, body.md-default-theme, body {
+  background-color: #FFF; }

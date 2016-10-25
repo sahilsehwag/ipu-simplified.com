@@ -14,7 +14,8 @@ import java.util.Date;
         @NamedQuery(name = "getRowsByDateRange", query = "FROM PDFLink AS pdf WHERE (pdf.uploadDate >= :startDate and pdf.uploadDate <= :endDate)"),
 })
 @NamedNativeQueries({
-        @NamedNativeQuery(name="PDFLink.byPDFTypeInRange", query="SELECT * FROM PDF_LINKS WHERE PDF_TYPE = :pdfType LIMIT :start, :end", resultClass=PDFLink.class)
+        @NamedNativeQuery(name="PDFLink.byPDFTypeInRange", query="SELECT * FROM PDF_LINKS WHERE PDF_TYPE = :pdfType LIMIT :start, :rowCount", resultClass=PDFLink.class),
+        @NamedNativeQuery(name="PDFLink.getRowCount", query="SELECT count(*) FROM PDF_LINKS WHERE PDF_TYPE = :pdfType")
 })
 public class PDFLink implements IModel{
 
@@ -95,5 +96,6 @@ public class PDFLink implements IModel{
     public void setPdfType(String pdfType) {
         this.pdfType = pdfType;
     }
+
 }
 

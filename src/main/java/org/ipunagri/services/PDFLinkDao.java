@@ -2,35 +2,32 @@ package org.ipunagri.services;
 
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.ipunagri.models.IModel;
 import org.ipunagri.models.PDFLink;
 import org.ipunagri.support.models.ParsedRow;
-import org.ipunagri.support.parsers.html.ParseType;
 
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Query;
-import java.net.URL;
-import java.util.Date;
+import java.math.BigInteger;
 import java.util.List;
-import java.util.Map;
-
-
 
 
 public class PDFLinkDao extends Dao<PDFLink> {
 
-    public List<PDFLink> getRows(String pdfType, int start, int end) {
+    private static int ROWS_PER_PAGE;
+    private static int PAGE_PER_PAGE;
+
+    static{
+        ROWS_PER_PAGE = 20;
+    }
+
+    public List<PDFLink> getRows(String pdfType, int page) {
         List<PDFLink> pdfLinks = null;
 
         try(Session session = sessionFactory.openSession()){
             session.beginTransaction();
-            //Query query = session.getNamedQuery("getRowsByPDFType");
             Query query = session.getNamedNativeQuery("PDFLink.byPDFTypeInRange");
             query.setParameter("pdfType", pdfType);
-            query.setParameter("start", start);
-            query.setParameter("end", end);
+            query.setParameter("start",(ROWS_PER_PAGE*page)- ROWS_PER_PAGE);
+            query.setParameter("rowCount", ROWS_PER_PAGE);
 
             pdfLinks = query.getResultList();
         }catch(Exception e){
@@ -48,14 +45,11 @@ public class PDFLinkDao extends Dao<PDFLink> {
         PDFLink pdfLink=null;
         Session session = null;
 
-        //System.out.println(pdfType);
-
         try{
             session = sessionFactory.openSession();
             session.beginTransaction();
 
             for (ParsedRow row : rows) {
-                //System.out.println(pdfType);
                 pdfLink = new PDFLink(pdfType, row.getName(), row.getUrl(), row.getDate());
 
                 session.saveOrUpdate(pdfLink);
@@ -64,10 +58,30 @@ public class PDFLinkDao extends Dao<PDFLink> {
             session.getTransaction().rollback();
             e.printStackTrace();
         }finally {
-            session.getTransaction().commit();
+            try{
+                session.getTransaction().commit();
+            }catch (Exception e){e.printStackTrace();}
         }
+    }
 
+    public int getRowsPerPage(){
+        return ROWS_PER_PAGE;
+    }
 
+    public int getTotalPages(String pdfType){
+        BigInteger totalPages = null;
+
+        try(Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            Query query = session.getNamedNativeQuery("PDFLink.getRowCount");
+            query.setParameter("pdfType", pdfType);
+
+            BigInteger rowCount = (BigInteger)query.getSingleResult();
+            totalPages = rowCount.divide(BigInteger.valueOf(ROWS_PER_PAGE));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return totalPages.intValue();
     }
 
 }

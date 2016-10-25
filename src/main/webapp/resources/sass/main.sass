@@ -5,8 +5,12 @@
 @import 'components/components'
 
 
+
 body
     font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif
+body,main
+    a
+        text-decoration: none !important
 
 
 main
@@ -22,9 +26,12 @@ md-sidenav
     .sidenav-logo
         height: 20%
         font-size: 24px
-        h1
+        h2
             color: white
             text-align: center
+            small
+                font-size: 0.5em
+                font-weight: bolder
 
     .sidenav-item-container
         height: 100%
@@ -49,7 +56,7 @@ md-sidenav
                 right: 10px
             input[type]
                 border-radius: 0px !important
-                font-size: 0.95em
+                font-size: 1.4em
             .buttons
                 .md-button
                     width: 100%
@@ -61,8 +68,8 @@ md-sidenav
 
 #app-menu
     position: absolute
-    box-shadow: 1px 0px 3px 3px rgba(0,0,0,0.2)
-    height: 55px
+    //box-shadow: 1px 0px 3px 3px rgba(0,0,0,0.2)
+    height: 50px
     left: 0px
     top: 0px
     padding:
@@ -70,11 +77,26 @@ md-sidenav
         right: 2%
     z-index: 15
 
+    //background-color: rgba(254, 255, 255, 0.34)
+    background-color: transparent
+
     .md-toolbar-tools
+        a
+            margin:
+                left: 5px
+                right: 5px
+            font-size: 0.7em
+            font-weight: 700
         .md-button.md-fab.md-mini
             background-color: transparent !important
-            //box-shadow: none
-            .md-icon
+        input
+            width: auto
+            height: auto
+            font-size: 0.6em !important
+            border-radius: 0%
+            background: transparent
+            padding:
+                right: 15px
 
 
 .md-button.md-fab.md-mini.sidenav-openor
@@ -112,19 +134,20 @@ footer
             font-weight: 600
             text-align: center
             .title
-                font-size: 1.1em
+                font-size: 1.5em
                 margin:
                     bottom: 15px
             .link
-                font-size: 0.9em
+                font-size: 1.4em
 
 header
     position: relative
-    height: 80%
+    height: 60%
     overflow: hidden
     box-shadow: 1px 0px 3px 3px rgba(0,0,0,0.3)
     background:
-        image: url('http://greenywallpapers.com/wallpapers/1/18241-bird-nest-beijing-national-wallpapers-1920x1080.jpg')
+        //image: url('http://greenywallpapers.com/wallpapers/1/18241-bird-nest-beijing-national-wallpapers-1920x1080.jpg')
+        //image: url('http://chainimage.com/images/education-picture-wallpaper-21170-hi-resolution-education-picture.jpg')
         position: center center
     margin:
         bottom: 2%
@@ -134,6 +157,8 @@ header
         color: rgba(255, 255, 255, 1)
         font-size: 4em
         z-index: 10
+        small
+            color: rgba(45, 91, 255, 0.93)
 
     .overlay
         position: absolute
