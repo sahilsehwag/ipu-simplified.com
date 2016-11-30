@@ -5,7 +5,7 @@ import java.io.File;
 
 public interface PDFToTextConverter {
 
-    default String convertToText(File file){
+    default String convertToText(File file) {
         return null;
     }
 

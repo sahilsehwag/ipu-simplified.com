@@ -5,12 +5,12 @@ import org.ipunagri.support.models.ParsedNotice;
 
 import java.net.URL;
 
-public class NotificationParser extends PDFParser implements PDFToHTMLConverter{
+public class NotificationParser extends PDFParser implements PDFToHTMLConverter {
 
     private ParsedNotice notification;
 
 
-    public NotificationParser(URL url){
+    public NotificationParser(URL url) {
         super(url);
     }
 

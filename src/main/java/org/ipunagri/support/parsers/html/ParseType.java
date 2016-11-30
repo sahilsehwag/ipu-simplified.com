@@ -14,8 +14,8 @@ public enum ParseType {
             Regexes.IPU_PDF.getRegex()),
 
     OLD_RESULTS("http://ipu.ac.in/exam_results.php",
-                "http://ipu.ac.in",
-                Regexes.IPU_PDF.getRegex()),
+            "http://ipu.ac.in",
+            Regexes.IPU_PDF.getRegex()),
 
     NOTICE("http://ipu.ac.in/exam_notices.php",
             "http://ipu.ac.in",
@@ -35,10 +35,10 @@ public enum ParseType {
     private Pattern regex;
 
     ParseType(String url, String pdfBaseURL, Pattern regex) {
-        try{
+        try {
             this.url = new URL(url);
             this.pdfBaseURL = new URL(pdfBaseURL);
-        }catch(MalformedURLException e){
+        } catch (MalformedURLException e) {
             System.out.println(url.toString());
             e.printStackTrace();
         }

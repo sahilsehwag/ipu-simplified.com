@@ -5,7 +5,7 @@ import java.io.File;
 
 public interface PDFToHTMLConverter {
 
-    default String convertToHTML(File file){
+    default String convertToHTML(File file) {
         return null;
     }
 

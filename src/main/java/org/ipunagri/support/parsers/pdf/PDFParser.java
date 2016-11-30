@@ -7,12 +7,12 @@ import org.ipunagri.support.models.ParsedRow;
 import java.io.File;
 import java.net.URL;
 
-public abstract class PDFParser extends Parser{
+public abstract class PDFParser extends Parser {
 
 
     private ParsedRow row;
 
-    protected PDFParser(URL url){
+    protected PDFParser(URL url) {
         this.url = url;
     }
 
@@ -22,7 +22,7 @@ public abstract class PDFParser extends Parser{
     }
 
 
-    protected boolean validPDFUrl(URL url){
+    protected boolean validPDFUrl(URL url) {
         return false;
     }
 

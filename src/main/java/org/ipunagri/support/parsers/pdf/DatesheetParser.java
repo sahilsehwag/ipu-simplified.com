@@ -5,7 +5,7 @@ import org.ipunagri.support.models.ParsedDatesheet;
 
 import java.net.URL;
 
-public class DatesheetParser extends PDFParser implements PDFToTextConverter{
+public class DatesheetParser extends PDFParser implements PDFToTextConverter {
 
     private ParsedDatesheet datesheet;
 
