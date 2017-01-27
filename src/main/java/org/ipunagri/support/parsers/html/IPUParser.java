@@ -1,34 +1,36 @@
 package org.ipunagri.support.parsers.html;
 
 
+import org.ipunagri.services.PDFLinkDao;
 import org.ipunagri.support.models.ParsedRow;
 
 import java.net.URL;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class IPUParser extends HTMLParser {
 
-    private List<ParsedRow> rows;
+    private LinkedList<ParsedRow> rows;
     private ParseType pdfType;
 
 
-    public IPUParser(ParseType pdfType) {
+    private PDFLinkDao pdfLinkDao;
 
-        rows = new ArrayList();
+
+    public IPUParser(ParseType pdfType, PDFLinkDao pdfLinkDao) {
+
+        rows = new LinkedList<ParsedRow>();
 
         this.url = pdfType.getUrl();
         this.pdfType = pdfType;
+        this.pdfLinkDao = pdfLinkDao;
     }
 
-    public void generateRows() {
+    public void generateRows(String pdfTypeString) {
 
+        ArrayList<String> oldRows = pdfLinkDao.getTodaysOldRows(pdfTypeString);
         String lines = download(url);
         Date uploadDate = null;
 
@@ -37,20 +39,22 @@ public class IPUParser extends HTMLParser {
 
         while (matcher.find()) {
             String date = matcher.group(3);
+            SimpleDateFormat sdf = null;
 
-//            String match = matcher.group();
-
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            if (date.length() < 10)
+                sdf = new SimpleDateFormat("dd-MM-yy");
+            else
+                sdf = new SimpleDateFormat("dd-MM-yyyy");
 
             Calendar c = Calendar.getInstance();
 
             try {
                 c.setTime(sdf.parse(date));
-            } catch (ParseException e) {
+                uploadDate = c.getTime();
+            } catch (Exception e) {
                 e.printStackTrace();
+                continue;
             }
-
-            uploadDate = c.getTime();
 
 
             if (uploadDate.after(lastFetchDate) || uploadDate.equals(lastFetchDate)) {
@@ -59,8 +63,11 @@ public class IPUParser extends HTMLParser {
 
                 try {
                     URL p = new URL(url);
-                    ParsedRow row = new ParsedRow(uploadDate, matcher.group(2), p);
-                    rows.add(row);
+                    ParsedRow row = new ParsedRow(uploadDate, matcher.group(2).trim(), p);
+                    if (!oldRows.contains(row.getName())) {
+                        rows.addFirst(row);
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -78,4 +85,5 @@ public class IPUParser extends HTMLParser {
     public List<ParsedRow> getRows() {
         return rows;
     }
+
 }

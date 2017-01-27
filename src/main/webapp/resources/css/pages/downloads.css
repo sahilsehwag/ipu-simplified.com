@@ -32,5 +32,16 @@ td:nth-child(0n+1) {
 .pagination {
   font-size: 1.4em; }
 
+.pagination li {
+  border-radius: 0% !important;
+}
+
+.pagination li.active {
+  background: #7071ff;
+  color: #FFF;
+}
+
 html.md-default-theme, html, body.md-default-theme, body {
   background-color: #FFF; }
+
+/*# sourceMappingURL=downloads.css.map */

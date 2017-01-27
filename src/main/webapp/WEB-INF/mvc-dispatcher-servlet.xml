@@ -30,7 +30,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/ipu_nagri"/>
         <property name="username" value="root"/>
-        <property name="password" value=""/>
+        <property name="password" value="toor"/>
     </bean>
 
 
@@ -70,7 +70,8 @@
     <task:annotation-driven/>
 
     <task:scheduled-tasks>
-        <task:scheduled ref="tasks" method="getOldResultPDFLinks" fixed-rate="900000"/>
+        <task:scheduled ref="tasks" method="getOldResultPDFLinks" fixed-rate="999999999"/>
+        <!--set for a month or someting-->
         <task:scheduled ref="tasks" method="getNoticePDFLinks" fixed-rate="900000"/>
         <task:scheduled ref="tasks" method="getResultPDFLinks" fixed-rate="900000"/>
         <task:scheduled ref="tasks" method="getDatesheetPDFLinks" fixed-rate="900000"/>

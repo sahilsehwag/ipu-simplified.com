@@ -7,18 +7,13 @@ import org.ipunagri.models.PDFLink;
 import org.ipunagri.services.PDFLinkDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +37,7 @@ public class MainController {
 
     @RequestMapping("notices")
     public ModelAndView notices(ModelMap map, @RequestParam(defaultValue="1") int page){
-        if(page < 1 || page > pdfLinkDao.getTotalPages(PDFLink.RESULT))
+        if (page < 1 || page > pdfLinkDao.getTotalPages(PDFLink.NOTICE))
             return new ModelAndView("redirect:page-not-found");
 
         List<PDFLink> notices = pdfLinkDao.getRows(PDFLink.NOTICE, page);
@@ -52,6 +47,7 @@ public class MainController {
         map.addAttribute("notices", notices);
         map.addAttribute("pageCounts", pageCounts);
         map.addAttribute("page", page);
+        map.addAttribute("lastPage", pdfLinkDao.getTotalPages(PDFLink.NOTICE));
 
         return new ModelAndView("downloads/notices", map);
     }
@@ -68,13 +64,14 @@ public class MainController {
         map.addAttribute("results", results);
         map.addAttribute("pageCounts", pageCounts);
         map.addAttribute("page", page);
+        map.addAttribute("lastPage", pdfLinkDao.getTotalPages(PDFLink.RESULT));
 
         return new ModelAndView("downloads/results", map);
     }
 
     @RequestMapping("datesheets")
     public ModelAndView datesheets(ModelMap map, @RequestParam(defaultValue="1") int page){
-        if(page < 1 || page > pdfLinkDao.getTotalPages(PDFLink.RESULT))
+        if (page < 1 || page > pdfLinkDao.getTotalPages(PDFLink.DATESHEET))
             return new ModelAndView("redirect:page-not-found");
 
         List<PDFLink> datesheets = pdfLinkDao.getRows(PDFLink.DATESHEET, page);
@@ -84,6 +81,7 @@ public class MainController {
         map.addAttribute("datesheets", datesheets);
         map.addAttribute("pageCounts", pageCounts);
         map.addAttribute("page", page);
+        map.addAttribute("lastPage", pdfLinkDao.getTotalPages(PDFLink.DATESHEET));
 
         return new ModelAndView("downloads/datesheets", map);
     }
@@ -104,6 +102,11 @@ public class MainController {
     @RequestMapping(value="under-development", method=RequestMethod.GET)
     public String underDevelopment(){
         return "base/under-development";
+    }
+
+    @RequestMapping(value = "about")
+    public ModelAndView about() {
+        return new ModelAndView("base/about");
     }
 
     @RequestMapping("page-not-found")

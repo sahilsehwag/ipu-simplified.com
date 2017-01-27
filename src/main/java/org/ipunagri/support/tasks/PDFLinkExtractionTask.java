@@ -17,17 +17,16 @@ public class PDFLinkExtractionTask {
     @Autowired
     PDFLinkDao pdfLinksDAO;
 
+    private final String START_DATE = "01-01-2010";
+
     public void getResultPDFLinks() {
         ParseType pdfType = ParseType.RESULT;
-        IPUParser ipuParser = new IPUParser(pdfType);
+        IPUParser ipuParser = new IPUParser(pdfType, pdfLinksDAO);
 
-        ipuParser.generateRows();
+        ipuParser.generateRows("RESULT");
         List<ParsedRow> rows = ipuParser.getRows();
 
-        if (rows.isEmpty()) {
-
-        }
-        else {
+        if (!rows.isEmpty()) {
             pdfLinksDAO.saveOrUpdateAll(rows, PDFLink.RESULT);
         }
 
@@ -35,14 +34,12 @@ public class PDFLinkExtractionTask {
 
     public void getNoticePDFLinks() {
         ParseType p = ParseType.NOTICE;
-        IPUParser ipuParser = new IPUParser(p);
+        IPUParser ipuParser = new IPUParser(p, pdfLinksDAO);
 
-        ipuParser.generateRows();
+        ipuParser.generateRows("NOTICE");
         List<ParsedRow> rows = ipuParser.getRows();
 
-        if (rows.isEmpty()) {
-        }
-        else {
+        if (!rows.isEmpty()) {
             pdfLinksDAO.saveOrUpdateAll(rows, PDFLink.NOTICE);
         }
 
@@ -50,14 +47,13 @@ public class PDFLinkExtractionTask {
 
     public void getDatesheetPDFLinks() {
         ParseType p = ParseType.DATESHEET;
-        IPUParser ipuParser = new IPUParser(p);
+        IPUParser ipuParser = new IPUParser(p, pdfLinksDAO);
 
-        ipuParser.generateRows();
+
+        ipuParser.generateRows("DATESHEET");
         List<ParsedRow> rows = ipuParser.getRows();
 
-        if (rows.isEmpty()) {
-        }
-        else {
+        if (!rows.isEmpty()) {
             pdfLinksDAO.saveOrUpdateAll(rows, PDFLink.DATESHEET);
         }
 
@@ -66,15 +62,13 @@ public class PDFLinkExtractionTask {
 
     public void getOldResultPDFLinks() {
         ParseType pdfType = ParseType.OLD_RESULTS;
-        IPUParser ipuParser = new IPUParser(pdfType);
+        IPUParser ipuParser = new IPUParser(pdfType, pdfLinksDAO);
 
-        ipuParser.generateRows();
+        ipuParser.generateRows("RESULT");
         List<ParsedRow> rows = ipuParser.getRows();
 
 
-        if (rows.isEmpty()) {
-        }
-        else {
+        if (!rows.isEmpty()) {
             pdfLinksDAO.saveOrUpdateAll(rows, PDFLink.RESULT);
         }
 

@@ -7,6 +7,8 @@ import org.ipunagri.support.models.ParsedRow;
 
 import javax.persistence.Query;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -51,7 +53,6 @@ public class PDFLinkDao extends Dao<PDFLink> {
 
             for (ParsedRow row : rows) {
                 pdfLink = new PDFLink(pdfType, row.getName(), row.getUrl(), row.getDate());
-
                 session.saveOrUpdate(pdfLink);
             }
         }catch(Exception e){
@@ -77,11 +78,51 @@ public class PDFLinkDao extends Dao<PDFLink> {
             query.setParameter("pdfType", pdfType);
 
             BigInteger rowCount = (BigInteger)query.getSingleResult();
-            totalPages = rowCount.divide(BigInteger.valueOf(ROWS_PER_PAGE));
+            BigInteger[] qAndR = rowCount.divideAndRemainder(BigInteger.valueOf(ROWS_PER_PAGE));
+            if (qAndR[1].intValue() != 0)
+                totalPages = qAndR[0].add(new BigInteger("1"));
+            else totalPages = qAndR[0];
         }catch(Exception e){
             e.printStackTrace();
         }
         return totalPages.intValue();
+    }
+
+    public ArrayList<String> getTodaysOldRows(String pdfType) {
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            Query query = session.getNamedNativeQuery("PDFLink.getByToday");
+
+            query.setParameter("pdfType", pdfType);
+            query.setParameter("uploadDate", getCorrectDate());
+
+            List rows = query.getResultList();
+            ArrayList<String> urlRows = new ArrayList<>();
+
+            for (Object row : rows) {
+                urlRows.add(((String) row).trim());
+            }
+
+            return urlRows;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private String getCorrectDate() {
+        Date today = new Date();
+        String todayString = null;
+        String correctMonth = (new Integer(today.getMonth() + 1)).toString();
+        String correctDate = (new Integer(today.getDate())).toString();
+
+        if (today.getMonth() < 9) correctMonth = "0" + correctMonth;
+        if (today.getDate() < 10) correctDate = "0" + correctDate;
+
+        todayString = (today.getYear() + 1900) + "-" + correctMonth + "-" + correctDate;
+
+        return todayString;
     }
 
 }

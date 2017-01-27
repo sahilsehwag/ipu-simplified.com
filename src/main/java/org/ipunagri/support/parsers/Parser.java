@@ -6,6 +6,7 @@ import org.ipunagri.support.Utilities;
 import java.io.*;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 
@@ -16,6 +17,9 @@ public abstract class Parser {
     protected String parsedData;
     protected static Date lastFetchDate;
     protected static String dateFormat = "dd-MM-yyyy";
+
+
+    protected static ArrayList<String> todayURLs = null;
 
     static {
         setLastFetchDate();
@@ -36,6 +40,7 @@ public abstract class Parser {
 
     private static void setLastFetchDate() {
         Properties properties = new Properties();
+        //Parser.class.getResource("LastFetchDate.txt").getFile()
         File config = new File("E:\\javaWork\\ipunagri\\src\\main\\webapp\\WEB-INF\\LastFetchDate.txt");
         String date = null;
 
@@ -78,4 +83,11 @@ public abstract class Parser {
         updateLastFetchDate(lastFetchDate);
     }
 
+    public static ArrayList<String> getTodayURLs() {
+        return todayURLs;
+    }
+
+    public static void setTodayURLs(ArrayList<String> todayURLs) {
+        Parser.todayURLs = todayURLs;
+    }
 }

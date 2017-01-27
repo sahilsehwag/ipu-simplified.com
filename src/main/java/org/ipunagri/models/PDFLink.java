@@ -3,6 +3,7 @@ package org.ipunagri.models;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
+import java.io.Serializable;
 import java.net.URL;
 import java.util.Date;
 
@@ -14,10 +15,11 @@ import java.util.Date;
         @NamedQuery(name = "getRowsByDateRange", query = "FROM PDFLink AS pdf WHERE (pdf.uploadDate >= :startDate and pdf.uploadDate <= :endDate)"),
 })
 @NamedNativeQueries({
-        @NamedNativeQuery(name="PDFLink.byPDFTypeInRange", query="SELECT * FROM PDF_LINKS WHERE PDF_TYPE = :pdfType LIMIT :start, :rowCount", resultClass=PDFLink.class),
-        @NamedNativeQuery(name="PDFLink.getRowCount", query="SELECT count(*) FROM PDF_LINKS WHERE PDF_TYPE = :pdfType")
+        @NamedNativeQuery(name = "PDFLink.byPDFTypeInRange", query = "SELECT * FROM PDF_LINKS WHERE PDF_TYPE = :pdfType order by ID desc LIMIT :start, :rowCount", resultClass = PDFLink.class),
+        @NamedNativeQuery(name = "PDFLink.getRowCount", query = "SELECT count(*) FROM PDF_LINKS WHERE PDF_TYPE = :pdfType"),
+        @NamedNativeQuery(name = "PDFLink.getByToday", query = "SELECT NAME FROM PDF_LINKS WHERE PDF_TYPE = :pdfType AND UPLOAD_DATE = :uploadDate")
 })
-public class PDFLink implements IModel{
+public class PDFLink implements IModel, Serializable {
 
     public static String RESULT = "RESULT";
     public static String NOTICE = "NOTICE";
@@ -26,7 +28,7 @@ public class PDFLink implements IModel{
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private int id;
 

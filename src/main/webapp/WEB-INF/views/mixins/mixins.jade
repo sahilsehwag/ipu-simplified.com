@@ -1,38 +1,44 @@
-mixin pagination(currentPage, pageCounts)
-	.container(layout='row' layout-align='center center')
-		nav(aria-label='Page navigation')
-			ul.pagination
-				li
-					a(href='?page='+(currentPage-1), aria-label='Previous')
-						span(aria-hidden='true') «
-				- for page in pageCounts
-					if page == currentPage
-						li.active
-							a(href='?page='+page) #{page}
-					else
-						li
-							a(href='?page='+page) #{page}
-				li
-					a(href='?page='+(currentPage+1), aria-label='Next')
-						span(aria-hidden='true') »
+mixin pagination(currentPage, pageCounts, lastPage)
+    #pagination.container(layout='row' layout-align='center center')
+        nav(aria-label='Page navigation')
+            ul.pagination
+                li
+                    a(href='?page=' + 1)
+                        bold <<
+                li
+                    a(href='?page=' + (currentPage - 1), aria-label='Previous')
+                        span(aria-hidden='true') <
+                - for page in pageCounts
+                if page == currentPage
+                    li.active
+                        a(href='?page=' + page) #{page}
+                else
+                    li
+                        a(href='?page=' + page) #{page}
+                li
+                    a(href='?page=' + (currentPage + 1), aria-label='Next')
+                        span(aria-hidden='true') >
+                li
+                    a(href='?page=' + lastPage)
+                        bold >>
 
 
 mixin downloadsTable(rows)
-	table
-		tr
-			th Name
-			th Upload Date
-		if rows
-			- for row in rows
-				tr
-					td
-						a(href=row.url) #{row.name}
-					td #{row.uploadDate}
+    table
+        tr
+            th Name
+            th Upload Date
+        if rows
+            - for row in rows
+            tr
+                td
+                    a(href=row.url) #{row.name}
+                td #{row.uploadDate}
 
 
-mixin downloadPage(pdfTypeName, rows, page, pageCounts)
-	div(layout='column')
-		div(ng-controller=pdfTypeName + 'Controller')
-			.container(layout='column')
-				+downloadsTable(rows)
-			+pagination(page, pageCounts)
+mixin downloadPage(pdfTypeName, rows, page, pageCounts, lastPage)
+    div(layout='column')
+        div(ng-controller=pdfTypeName + 'Controller')
+            .container(layout='column')
+                +downloadsTable(rows)
+            +pagination(page, pageCounts, lastPage)

@@ -42,10 +42,9 @@ public abstract class HTMLParser extends Parser {
 
         else if (url.charAt(0) == '/')
             url = baseURL + url;
-
-        else if (!url.substring(0, 4).equals("http"))
-            url = baseURL + url;
-
+        else if (url.charAt(0) != '/' && url.substring(0, 4) != "http") {
+            url = baseURL + "/" + url;
+        }
         return url;
     }
 

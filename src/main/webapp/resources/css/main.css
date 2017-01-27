@@ -10211,8 +10211,13 @@ body a, main a {
   text-decoration: none !important; }
 
 main {
-  margin-bottom: 2%;
+  margin-bottom: 1%;
   min-height: 100%; }
+
+main ol.breadcrumb {
+  font-size: 16px;
+  font-weight: 600;
+}
 
 md-sidenav {
   background-color: #222222;
@@ -10287,10 +10292,10 @@ md-sidenav {
 footer {
   background-color: #222;
   color: rgba(239, 239, 239, 0.9);
-  padding-top: 6%;
-  padding-bottom: 6%;
+  padding-top: 1%;
+  padding-bottom: 1%;
   box-shadow: -1px 0px 3px 3px rgba(0, 0, 0, 0.3);
-  margin-top: 2%; }
+}
   footer .col:nth-child(2),
   footer .col:nth-child(3) {
     border-color: rgba(220, 220, 220, 0.4);
@@ -10299,21 +10304,18 @@ footer {
     border-top-width: 0px;
     border-bottom-width: 0px;
     border-style: solid; }
-  footer .container .col {
+
+footer .container {
     font-weight: 600;
-    text-align: center; }
-    footer .container .col .title {
-      font-size: 1.5em;
-      margin-bottom: 15px; }
-    footer .container .col .link {
-      font-size: 1.4em; }
+  font-size: 16px;
+}
 
 header {
   position: relative;
-  height: 60%;
+  height: 30%;
   overflow: hidden;
   box-shadow: 1px 0px 3px 3px rgba(0, 0, 0, 0.3);
-  background-image: url("http://www.jenniferbrouwerdesign.com/blog/wp-content/uploads/2011/07/educate.jpg");
+  background-image: url("http://www.ipu.ac.in/data0/images/1.jpg");
   background-position: center center;
   margin-bottom: 2%; }
   header h1 {
@@ -10331,3 +10333,59 @@ header {
     bottom: 0px;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 5; }
+
+main .container.about {
+  padding: 3% 3%;
+  background-color: #fbfbfb;
+}
+
+main .container.about h1 {
+  margin-top: 1%;
+  font-size: 36px;
+  color: #238efb;
+}
+
+main .container.about h1 small {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+main .container.about #about {
+  margin-top: 5%;
+  font-size: 16px;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+main .container.about #developers .dev {
+  background-color: #f3f3f3;
+  margin-top: 4%;
+  padding: 4%;
+}
+
+main .container.about #developers .dev div img {
+  width: 300px;
+  height: 300px;
+}
+
+main .container.about #developers .dev .content .name {
+  font-size: 20px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  font-weight: 600;
+}
+
+main .container.about #developers .dev .content .desc {
+  font-size: 16px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+main .container.about #developers .dev .content .links {
+  font-size: 16px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=main.css.map */
