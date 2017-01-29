@@ -17,7 +17,10 @@ import java.util.Date;
 @NamedNativeQueries({
         @NamedNativeQuery(name = "PDFLink.byPDFTypeInRange", query = "SELECT * FROM PDF_LINKS WHERE PDF_TYPE = :pdfType order by ID desc LIMIT :start, :rowCount", resultClass = PDFLink.class),
         @NamedNativeQuery(name = "PDFLink.getRowCount", query = "SELECT count(*) FROM PDF_LINKS WHERE PDF_TYPE = :pdfType"),
-        @NamedNativeQuery(name = "PDFLink.getByToday", query = "SELECT NAME FROM PDF_LINKS WHERE PDF_TYPE = :pdfType AND UPLOAD_DATE = :uploadDate")
+        @NamedNativeQuery(name = "PDFLink.getByToday", query = "SELECT NAME FROM PDF_LINKS WHERE PDF_TYPE = :pdfType AND UPLOAD_DATE = :uploadDate"),
+        @NamedNativeQuery(name = "PDFLink.getByDate", query = "SELECT NAME FROM PDF_LINKS WHERE PDF_TYPE = :pdfType AND UPLOAD_DATE = :uploadDate"),
+        @NamedNativeQuery(name = "PDFLink.deleteByDate", query = "DELETE FROM PDF_LINKS WHERE UPLOAD_DATE = :uploadDate"),
+        @NamedNativeQuery(name = "PDFLink.getLastFetchDate", query = "SELECT UPLOAD_DATE FROM PDF_LINKS WHERE PDF_TYPE = :pdfType ORDER BY UPLOAD_DATE DESC LIMIT 0,1")
 })
 public class PDFLink implements IModel, Serializable {
 

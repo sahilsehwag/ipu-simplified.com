@@ -132,6 +132,11 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/webapp/WEB-INF/config.properties</directory>
+            </resource>
+        </resources>
         <finalName>Ipunagri</finalName>
         <plugins>
             <!--<plugin>-->

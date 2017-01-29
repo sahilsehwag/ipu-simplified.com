@@ -4,7 +4,6 @@ package org.ipunagri.support.tasks;
 import org.ipunagri.models.PDFLink;
 import org.ipunagri.services.PDFLinkDao;
 import org.ipunagri.support.models.ParsedRow;
-import org.ipunagri.support.parsers.Parser;
 import org.ipunagri.support.parsers.html.IPUParser;
 import org.ipunagri.support.parsers.html.ParseType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +19,14 @@ public class PDFLinkExtractionTask {
     private final String START_DATE = "01-01-2010";
 
     public void getResultPDFLinks() {
+        Date lastFetchDate = pdfLinksDAO.getLastFetchDate(PDFLink.RESULT);
+
+        if (lastFetchDate == null) getOldResultPDFLinks();
+
         ParseType pdfType = ParseType.RESULT;
         IPUParser ipuParser = new IPUParser(pdfType, pdfLinksDAO);
 
-        ipuParser.generateRows("RESULT");
+        ipuParser.generateRows(PDFLink.RESULT, lastFetchDate);
         List<ParsedRow> rows = ipuParser.getRows();
 
         if (!rows.isEmpty()) {
@@ -36,7 +39,10 @@ public class PDFLinkExtractionTask {
         ParseType p = ParseType.NOTICE;
         IPUParser ipuParser = new IPUParser(p, pdfLinksDAO);
 
-        ipuParser.generateRows("NOTICE");
+        Date lastFetchDate = pdfLinksDAO.getLastFetchDate(PDFLink.NOTICE);
+
+        ipuParser.generateRows(PDFLink.NOTICE, lastFetchDate);
+
         List<ParsedRow> rows = ipuParser.getRows();
 
         if (!rows.isEmpty()) {
@@ -49,10 +55,11 @@ public class PDFLinkExtractionTask {
         ParseType p = ParseType.DATESHEET;
         IPUParser ipuParser = new IPUParser(p, pdfLinksDAO);
 
+        Date lastFetchDate = pdfLinksDAO.getLastFetchDate(PDFLink.DATESHEET);
 
-        ipuParser.generateRows("DATESHEET");
+        ipuParser.generateRows(PDFLink.DATESHEET, lastFetchDate);
+
         List<ParsedRow> rows = ipuParser.getRows();
-
         if (!rows.isEmpty()) {
             pdfLinksDAO.saveOrUpdateAll(rows, PDFLink.DATESHEET);
         }
@@ -64,7 +71,10 @@ public class PDFLinkExtractionTask {
         ParseType pdfType = ParseType.OLD_RESULTS;
         IPUParser ipuParser = new IPUParser(pdfType, pdfLinksDAO);
 
-        ipuParser.generateRows("RESULT");
+        Date lastFetchDate = pdfLinksDAO.getLastFetchDate(PDFLink.RESULT);
+
+        ipuParser.generateRows(PDFLink.RESULT,lastFetchDate);
+
         List<ParsedRow> rows = ipuParser.getRows();
 
 
@@ -74,8 +84,10 @@ public class PDFLinkExtractionTask {
 
     }
 
-    public void updateLastFetchDate(){
-        Parser.updateLastFetchDate(new Date());
+    public void removeOldPDFLinks(){
+        Date removeDate = new Date();
+        removeDate.setYear(removeDate.getYear() - 5);
+        pdfLinksDAO.deleteRowsByDate(removeDate);
     }
 
 }

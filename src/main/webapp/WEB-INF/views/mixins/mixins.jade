@@ -9,12 +9,12 @@ mixin pagination(currentPage, pageCounts, lastPage)
                     a(href='?page=' + (currentPage - 1), aria-label='Previous')
                         span(aria-hidden='true') <
                 - for page in pageCounts
-                if page == currentPage
-                    li.active
-                        a(href='?page=' + page) #{page}
-                else
-                    li
-                        a(href='?page=' + page) #{page}
+                    if page == currentPage
+                        li.active
+                            a(href='?page=' + page) #{page}
+                    else
+                        li
+                            a(href='?page=' + page) #{page}
                 li
                     a(href='?page=' + (currentPage + 1), aria-label='Next')
                         span(aria-hidden='true') >
@@ -30,10 +30,10 @@ mixin downloadsTable(rows)
             th Upload Date
         if rows
             - for row in rows
-            tr
-                td
-                    a(href=row.url) #{row.name}
-                td #{row.uploadDate}
+                tr
+                    td
+                        a(href=row.url) #{row.name}
+                    td #{row.uploadDate}
 
 
 mixin downloadPage(pdfTypeName, rows, page, pageCounts, lastPage)

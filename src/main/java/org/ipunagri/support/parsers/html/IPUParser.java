@@ -28,9 +28,14 @@ public class IPUParser extends HTMLParser {
         this.pdfLinkDao = pdfLinkDao;
     }
 
-    public void generateRows(String pdfTypeString) {
+    public void generateRows(String pdfTypeString, Date lastFetchDate) {
 
-        ArrayList<String> oldRows = pdfLinkDao.getTodaysOldRows(pdfTypeString);
+        if (lastFetchDate == null) {
+            lastFetchDate = new Date(2010, 1, 1);
+            lastFetchDate.setYear(lastFetchDate.getYear() - 1900);
+        }
+
+        ArrayList<String> oldRows = pdfLinkDao.getLastFetchDatesRows(pdfTypeString, lastFetchDate);
         String lines = download(url);
         Date uploadDate = null;
 
@@ -56,9 +61,7 @@ public class IPUParser extends HTMLParser {
                 continue;
             }
 
-
             if (uploadDate.after(lastFetchDate) || uploadDate.equals(lastFetchDate)) {
-
                 String url = makeURLAbsolute(matcher.group(1), pdfType.getPdfBaseURL().toString());
 
                 try {

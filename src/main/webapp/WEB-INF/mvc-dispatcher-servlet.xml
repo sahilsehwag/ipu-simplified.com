@@ -61,6 +61,7 @@
     <bean id="tasks" class="org.ipunagri.support.tasks.PDFLinkExtractionTask"></bean>
 
 
+
     <mvc:annotation-driven/>
     <mvc:resources mapping="/css/**" location="/resources/css/"/>
     <mvc:resources mapping="/js/**" location="/resources/js/"/>
@@ -70,12 +71,10 @@
     <task:annotation-driven/>
 
     <task:scheduled-tasks>
-        <task:scheduled ref="tasks" method="getOldResultPDFLinks" fixed-rate="999999999"/>
-        <!--set for a month or someting-->
         <task:scheduled ref="tasks" method="getNoticePDFLinks" fixed-rate="900000"/>
         <task:scheduled ref="tasks" method="getResultPDFLinks" fixed-rate="900000"/>
         <task:scheduled ref="tasks" method="getDatesheetPDFLinks" fixed-rate="900000"/>
-        <task:scheduled ref="tasks" method="updateLastFetchDate" fixed-rate="900000"/>
+        <task:scheduled ref="tasks" method="removeOldPDFLinks" fixed-rate="86400000"/>
     </task:scheduled-tasks>
 
 </beans>

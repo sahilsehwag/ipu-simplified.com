@@ -88,13 +88,13 @@ public class PDFLinkDao extends Dao<PDFLink> {
         return totalPages.intValue();
     }
 
-    public ArrayList<String> getTodaysOldRows(String pdfType) {
+    public ArrayList<String> getLastFetchDatesRows(String pdfType, Date date) {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
-            Query query = session.getNamedNativeQuery("PDFLink.getByToday");
+            Query query = session.getNamedNativeQuery("PDFLink.getByDate");
 
             query.setParameter("pdfType", pdfType);
-            query.setParameter("uploadDate", getCorrectDate());
+            query.setParameter("uploadDate", getCorrectDate(date));
 
             List rows = query.getResultList();
             ArrayList<String> urlRows = new ArrayList<>();
@@ -111,18 +111,50 @@ public class PDFLinkDao extends Dao<PDFLink> {
         return null;
     }
 
-    private String getCorrectDate() {
-        Date today = new Date();
+    private String getCorrectDate(Date date) {
+        Date lastFetchDate = date;
         String todayString = null;
-        String correctMonth = (new Integer(today.getMonth() + 1)).toString();
-        String correctDate = (new Integer(today.getDate())).toString();
+        String correctMonth = (new Integer(lastFetchDate.getMonth() + 1)).toString();
+        String correctDate = (new Integer(lastFetchDate.getDate())).toString();
 
-        if (today.getMonth() < 9) correctMonth = "0" + correctMonth;
-        if (today.getDate() < 10) correctDate = "0" + correctDate;
+        if (lastFetchDate.getMonth() < 9) correctMonth = "0" + correctMonth;
+        if (lastFetchDate.getDate() < 10) correctDate = "0" + correctDate;
 
-        todayString = (today.getYear() + 1900) + "-" + correctMonth + "-" + correctDate;
+        todayString = (lastFetchDate.getYear() + 1900) + "-" + correctMonth + "-" + correctDate;
 
         return todayString;
     }
 
+    public Date getLastFetchDate(String pdfType){
+        try(Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            Query query = session.getNamedNativeQuery("PDFLink.getRowCount");
+            query.setParameter("pdfType", pdfType);
+
+            if (((BigInteger)query.getSingleResult()).intValue() == 0){
+                return null;
+            }else{
+                query = session.getNamedNativeQuery("PDFLink.getLastFetchDate");
+                query.setParameter("pdfType", pdfType);
+
+                return (java.sql.Date) query.getSingleResult();
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public void deleteRowsByDate(Date date){
+        try(Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            Query query = session.getNamedNativeQuery("PDFLink.deleteByDate");
+            query.setParameter("uploadDate", date);
+
+            query.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }
