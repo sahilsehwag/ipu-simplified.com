@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Ipunagri:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="Ipunagri.war">
+      <element id="artifact" artifact-name="Ipunagri:war exploded" />
+    </root>
+  </artifact>
+</component>

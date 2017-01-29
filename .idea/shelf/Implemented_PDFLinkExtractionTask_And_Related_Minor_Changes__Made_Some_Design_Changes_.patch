@@ -1,0 +1,114 @@
+Index: src/main/java/org/ipunagri/support/parsers/Parser.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/org/ipunagri/support/parsers/Parser.java	(revision 91bf7806b028ddee1c137169f8f50c1d4e600905)
++++ src/main/java/org/ipunagri/support/parsers/Parser.java	(revision )
+@@ -2,13 +2,9 @@
+ 
+ 
+ import org.ipunagri.support.Utilities;
+-import org.springframework.web.context.support.ServletContextResource;
+ 
+ import java.io.*;
+ import java.net.URL;
+-import java.text.ParseException;
+-import java.text.SimpleDateFormat;
+-import java.util.Calendar;
+ import java.util.Date;
+ import java.util.Properties;
+ 
+@@ -20,9 +16,9 @@
+     protected static Date lastFetchDate;
+     protected static String dateFormat = "dd-MM-yyyy";
+ 
+-    static{
++   /* static{
+         setLastFetchDate();
+-    }
++    }*/
+ 
+ 
+     public static Date getLastFetchDate() {
+Index: src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml	(revision 91bf7806b028ddee1c137169f8f50c1d4e600905)
++++ src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml	(revision )
+@@ -30,7 +30,7 @@
+         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+         <property name="url" value="jdbc:mysql://localhost:3306/ipu_nagri"/>
+         <property name="username" value="root"/>
+-        <property name="password" value=""/>
++        <property name="password" value="toor"/>
+     </bean>
+ 
+ 
+@@ -70,11 +70,11 @@
+     <task:annotation-driven/>
+ 
+     <task:scheduled-tasks>
+-        <task:scheduled ref="tasks" method="getOldResultPDFLinks" fixed-rate="900000"/>
++        <!--<task:scheduled ref="tasks" method="getOldResultPDFLinks" fixed-rate="900000"/>-->
+         <task:scheduled ref="tasks" method="getNoticePDFLinks" fixed-rate="900000"/>
+         <task:scheduled ref="tasks" method="getResultPDFLinks" fixed-rate="900000"/>
+         <task:scheduled ref="tasks" method="getDatesheetPDFLinks" fixed-rate="900000"/>
+-        <task:scheduled ref="tasks" method="updateLastFetchDate" fixed-rate="900000"/>
++        <!--<task:scheduled ref="tasks" method="updateLastFetchDate" fixed-rate="900000"/>-->
+     </task:scheduled-tasks>
+ 
+ </beans>
+\ No newline at end of file
+Index: src/main/java/org/ipunagri/support/parsers/html/IPUParser.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/org/ipunagri/support/parsers/html/IPUParser.java	(revision 91bf7806b028ddee1c137169f8f50c1d4e600905)
++++ src/main/java/org/ipunagri/support/parsers/html/IPUParser.java	(revision )
+@@ -3,11 +3,13 @@
+ 
+ import org.ipunagri.support.models.ParsedRow;
+ 
+-import java.io.*;
+ import java.net.URL;
+ import java.text.ParseException;
+ import java.text.SimpleDateFormat;
+-import java.util.*;
++import java.util.ArrayList;
++import java.util.Calendar;
++import java.util.Date;
++import java.util.List;
+ import java.util.regex.Matcher;
+ import java.util.regex.Pattern;
+ 
+@@ -28,6 +30,7 @@
+     public void generateRows() {
+ 
+         String lines = download(url);
++
+         Date uploadDate = null;
+ 
+         Pattern pattern = pdfType.getRegex();
+@@ -51,7 +54,7 @@
+             uploadDate = c.getTime();
+ 
+ 
+-            if (uploadDate.after(lastFetchDate) || uploadDate.equals(lastFetchDate)) {
++            /*if (uploadDate.after(lastFetchDate) || uploadDate.equals(lastFetchDate)) {*/
+ 
+                 String url = makeURLAbsolute(matcher.group(1), pdfType.getPdfBaseURL().toString());
+ 
+@@ -62,7 +65,7 @@
+                 } catch (Exception e) {
+                     e.printStackTrace();
+                 }
+-            }
++           /* }*/
+         }
+     }
+ 
+\ No newline at end of file

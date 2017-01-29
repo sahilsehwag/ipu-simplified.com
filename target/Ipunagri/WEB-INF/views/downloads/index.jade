@@ -1,0 +1,50 @@
+extends ../layouts/layout
+
+
+block main
+	div(layout='column')
+		#tabs-container(ng-controller='downloadsController')
+			.container(layout='column')
+				md-tabs
+					//- var notices = [{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'}]
+					//- var results = [{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'}]
+					//- var datesheets = [{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'},{'name': 'B.TECH Result', 'uploadDate': '25-4-1'}]
+					md-tab#notices.tab
+						md-tab-label NOTICES
+						md-tab-body
+							table
+								tr
+									th Name
+									th Upload Date
+								if notices
+									- for notice in notices
+										tr
+											td
+												a(src=notice.url) #{notice.name}
+											td #{notice.uploadDate}
+					md-tab#results.tab
+						md-tab-label RESULTS
+						md-tab-body
+							table
+								tr
+									th Name
+									th Upload Date
+								if results
+									- for result in results
+										tr
+											td
+												a(src=result.url) #{result.name}
+											td #{result.uploadDate}
+					md-tab#datesheets.tab
+						md-tab-label DATESHEETS
+						md-tab-body
+							table
+								tr
+									th Name
+									th Upload Date
+								if datesheets
+									- for datesheet in datesheets
+										tr
+											td
+												a(src=datesheet.url) #{datesheet.name}
+											td #{datesheet.uploadDate}

@@ -1,0 +1,80 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+
+    <context:component-scan base-package="org.ipunagri.controllers"/>
+
+    <bean id="templateLoader" class="de.neuland.jade4j.spring.template.SpringTemplateLoader">
+        <property name="basePath" value="/WEB-INF/views/"/>
+    </bean>
+
+    <bean id="jadeConfiguration" class="de.neuland.jade4j.JadeConfiguration">
+        <property name="prettyPrint" value="false"/>
+        <property name="caching" value="false"/>
+        <property name="templateLoader" ref="templateLoader"/>
+    </bean>
+
+    <bean id="viewResolver" class="de.neuland.jade4j.spring.view.JadeViewResolver">
+        <property name="configuration" ref="jadeConfiguration"/>
+        <property name="renderExceptions" value="true"/>
+    </bean>
+
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/ipu_nagri"/>
+        <property name="username" value="root"/>
+        <property name="password" value="toor"/>
+    </bean>
+
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>org.ipunagri.models.PDFLink</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
+        <constructor-arg ref="sessionFactory"></constructor-arg>
+    </bean>
+
+    <bean id="pdfLinkDao" class="org.ipunagri.services.PDFLinkDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="tasks" class="org.ipunagri.support.tasks.PDFLinkExtractionTask"></bean>
+
+
+
+    <mvc:annotation-driven/>
+    <mvc:resources mapping="/css/**" location="/resources/css/"/>
+    <mvc:resources mapping="/js/**" location="/resources/js/"/>
+    <mvc:resources mapping="/images/**" location="/resources/images/"/>
+
+
+    <task:annotation-driven/>
+
+    <task:scheduled-tasks>
+        <task:scheduled ref="tasks" method="getNoticePDFLinks" fixed-rate="900000"/>
+        <task:scheduled ref="tasks" method="getResultPDFLinks" fixed-rate="900000"/>
+        <task:scheduled ref="tasks" method="getDatesheetPDFLinks" fixed-rate="900000"/>
+        <task:scheduled ref="tasks" method="removeOldPDFLinks" fixed-rate="86400000"/>
+    </task:scheduled-tasks>
+
+</beans>
