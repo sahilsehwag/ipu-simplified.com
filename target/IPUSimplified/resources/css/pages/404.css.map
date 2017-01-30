@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "mappings": "AACI,kBAAE;EACE,SAAS,EAAE,GAAG;EACd,KAAK,EAAE,sBAAuB;AAE9B,wBAAK;EACD,SAAS,EAAE,KAAK;EAChB,KAAK,EAAE,mBAAoB",
+  "sources": ["../../sass/pages/404.sass"],
+  "names": [],
+  "file": "404.css"
+}

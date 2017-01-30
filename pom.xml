@@ -101,12 +101,6 @@
         </dependency>
 
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.9</version>
-        </dependency>
-
-        <dependency>
             <groupId>de.neuland</groupId>
             <artifactId>jade4j-coffeescript-filter</artifactId>
             <version>0.2.0</version>
@@ -124,11 +118,11 @@
             <version>3.0.7.RELEASE</version>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>com.github.warmuuh</groupId>-->
-            <!--<artifactId>libsass-maven-plugin</artifactId>-->
-            <!--<version>0.2.4-libsass_3.3.4</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4.1212.jre7</version>
+        </dependency>
     </dependencies>
 
     <build>

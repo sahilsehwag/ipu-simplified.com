@@ -1,0 +1,9 @@
+include ../mixins/mixins
+
+extends ../layouts/layout
+
+block main
+	ol.breadcrumb
+		li.active
+			a(href='/results') Results
+	+downloadPage("results", results, page, pageCounts, lastPage)

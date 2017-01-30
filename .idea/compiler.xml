@@ -28,6 +28,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ipunagri" target="1.8" />
+      <module name="Ipunagri" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

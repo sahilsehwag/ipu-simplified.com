@@ -1,0 +1,26 @@
+md-button.md-fab.md-mini.sidenav-openor(ng-click='$parent.openMainMenu()')
+	md-icon(md-svg-src='images/icons/sidenav.svg')
+
+md-sidenav(md-component-id='main-menu' md-is-open='2 == 1' layout='column' layout-align='start stretch')
+	.sidenav-logo(layout='column' layout-align='center stretch')
+		h2 IPUSimplified
+			small BETA
+
+	.sidenav-item-container(layout='column' layout-align='start stretch' flex="grow")
+		div.menu-container
+			.sidenav-item
+				md-button.md-primary.md-raised(ng-href='/getyourresult') GET YOUR RESULT
+			.sidenav-item
+				md-button.md-primary.md-raised(ng-href='/results') RESULTS
+			.sidenav-item
+				md-button.md-primary.md-raised(ng-href='/datesheets') DATESHEETS
+			.sidenav-item
+				md-button.md-primary.md-raised(ng-href='/notices') NOTICES
+
+		div(flex="10")
+		form.sidenav-item(flex="50")
+			input(type='text' placeholder='Username' ng-model='username' disabled)
+			input(type='password' placeholder='Password' ng-model='password' disabled)
+			.buttons(layout='row')
+				md-button.md-raised.md-accent Login
+				md-button.md-primary Register

@@ -1,0 +1,9 @@
+include ../mixins/mixins
+
+extends ../layouts/layout
+
+block main
+	ol.breadcrumb
+		li.active
+			a(href='/datesheets') Datesheets
+	+downloadPage("datesheets", datesheets, page, pageCounts, lastPage)

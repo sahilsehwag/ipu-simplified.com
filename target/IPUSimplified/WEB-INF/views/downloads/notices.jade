@@ -1,0 +1,8 @@
+include ../mixins/mixins
+extends ../layouts/layout
+
+block main
+	ol.breadcrumb
+		li.active
+			a(href='/notices') Notices
+	+downloadPage("notices", notices, page, pageCounts, lastPage)
