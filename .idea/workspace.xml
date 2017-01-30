@@ -2,7 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea255770-1e51-4e02-b7f5-3d7790b8bd7f" name="Default" comment="Fixed DAO Bugs, Final changes in Frontend,  Fixed Controller Bugs, Updated Parser Logic, Updated regex for result.">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
+=======
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_9_4_1212_jre7.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/ipunagri/models/PDFLink.class" afterPath="$PROJECT_DIR$/target/classes/org/ipunagri/models/PDFLink.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/ipunagri/services/PDFLinkDao.class" afterPath="$PROJECT_DIR$/target/classes/org/ipunagri/services/PDFLinkDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/ipunagri/support/tasks/PDFLinkExtractionTask.class" afterPath="$PROJECT_DIR$/target/classes/org/ipunagri/support/tasks/PDFLinkExtractionTask.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ipunagri.iml" afterPath="$PROJECT_DIR$/Ipunagri.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/Ipunagri_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/Ipunagri_war.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/Ipunagri_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/Ipunagri_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/ipunagri/models/PDFLink.java" afterPath="$PROJECT_DIR$/src/main/java/org/ipunagri/models/PDFLink.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/ipunagri/services/PDFLinkDao.java" afterPath="$PROJECT_DIR$/src/main/java/org/ipunagri/services/PDFLinkDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+>>>>>>> efade8f6d7eba5ecea58e2e4e50bf424b465b675
     </list>
     <ignored path="ipunagri.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,16 +91,24 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="PDFLinkDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/ipunagri/services/PDFLinkDao.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="1320" max-vertical-offset="3744">
+=======
+      <file leaf-file-name="PDFLinkDao.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/ipunagri/services/PDFLinkDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.33027524" vertical-offset="1992" max-vertical-offset="3744">
+>>>>>>> efade8f6d7eba5ecea58e2e4e50bf424b465b675
               <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="mvc-dispatcher-servlet.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -93,6 +119,8 @@
           </provider>
         </entry>
       </file>
+=======
+>>>>>>> efade8f6d7eba5ecea58e2e4e50bf424b465b675
       <file leaf-file-name="IPUParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/ipunagri/support/parsers/html/IPUParser.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -139,9 +167,13 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/base/about.jade" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/ipunagri/support/parsers/html/IPUParser.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/ipunagri/models/PDFLink.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/ipunagri/services/PDFLinkDao.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
+=======
+>>>>>>> efade8f6d7eba5ecea58e2e4e50bf424b465b675
       </list>
     </option>
   </component>
@@ -291,6 +323,47 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+<<<<<<< HEAD
+=======
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ipunagri" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ipunagri" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ipunagri" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ipunagri" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+>>>>>>> efade8f6d7eba5ecea58e2e4e50bf424b465b675
           </PATH>
         </subPane>
       </pane>
@@ -742,7 +815,11 @@
       <workItem from="1485677255493" duration="14980000" />
       <workItem from="1485692578896" duration="642000" />
       <workItem from="1485693468463" duration="723000" />
+<<<<<<< HEAD
       <workItem from="1485765728383" duration="10208000" />
+=======
+      <workItem from="1485765728383" duration="7944000" />
+>>>>>>> efade8f6d7eba5ecea58e2e4e50bf424b465b675
     </task>
     <task id="LOCAL-00001" summary="Implemented IPUParser And Related Classes.">
       <created>1472802393347</created>
@@ -778,7 +855,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="226642000" />
+=======
+    <option name="totallyTimeSpent" value="224378000" />
+>>>>>>> efade8f6d7eba5ecea58e2e4e50bf424b465b675
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -825,8 +906,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30505952" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.57917887" sideWeight="0.49932975" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5835777" sideWeight="0.49966374" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21581769" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5837838" sideWeight="0.49966374" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21581769" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> efade8f6d7eba5ecea58e2e4e50bf424b465b675
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20238096" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1013,6 +1099,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26115343" vertical-offset="0" max-vertical-offset="960">
           <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -1043,10 +1130,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2802" max-vertical-offset="4656">
           <caret line="100" column="21" selection-start-line="100" selection-start-column="21" selection-end-line="100" selection-end-column="21" />
+=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/base/about.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.80973953" vertical-offset="269" max-vertical-offset="1152">
+          <caret line="41" column="68" selection-start-line="41" selection-start-column="68" selection-end-line="41" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_40/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="16466" max-vertical-offset="47136">
+          <caret line="744" column="0" selection-start-line="744" selection-start-column="0" selection-end-line="744" selection-end-column="0" />
+>>>>>>> efade8f6d7eba5ecea58e2e4e50bf424b465b675
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.1.1.RELEASE/spring-context-4.1.1.RELEASE.jar!/org/springframework/scheduling/support/DelegatingErrorHandlingRunnable.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2763819" vertical-offset="665" max-vertical-offset="864">
@@ -1059,6 +1163,94 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.03975535" vertical-offset="814" max-vertical-offset="2184">
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+=======
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.1.1.RELEASE/spring-context-4.1.1.RELEASE.jar!/org/springframework/scheduling/support/ScheduledMethodRunnable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="837" max-vertical-offset="1008">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+>>>>>>> efade8f6d7eba5ecea58e2e4e50bf424b465b675
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="2688">
+          <caret line="14" column="73" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2319#2320#0" expanded="true" />
+            <element signature="e#2344#2345#0" expanded="true" />
+            <element signature="e#2377#2378#0" expanded="true" />
+            <element signature="e#2405#2406#0" expanded="true" />
+            <element signature="e#2436#2437#0" expanded="true" />
+            <element signature="e#2463#2464#0" expanded="true" />
+            <element signature="e#2503#2504#0" expanded="true" />
+            <element signature="e#2535#2536#0" expanded="true" />
+            <element signature="e#2562#2563#0" expanded="true" />
+            <element signature="e#2588#2589#0" expanded="true" />
+            <element signature="e#2623#2624#0" expanded="true" />
+            <element signature="e#2653#2654#0" expanded="true" />
+            <element signature="e#2688#2689#0" expanded="true" />
+            <element signature="e#2721#2722#0" expanded="true" />
+            <element signature="e#2771#2772#0" expanded="true" />
+            <element signature="e#2815#2816#0" expanded="true" />
+            <element signature="e#2849#2850#0" expanded="true" />
+            <element signature="e#2879#2880#0" expanded="true" />
+            <element signature="e#2925#2926#0" expanded="true" />
+            <element signature="e#2963#2964#0" expanded="true" />
+            <marker date="1485773774702" expanded="true" signature="419:480" placeholder="SELECT NAME ..PDF_LINKS..." />
+            <marker date="1485773774702" expanded="true" signature="728:824" placeholder="SELECT * FRO..PDF_LINKS..." />
+            <marker date="1485773774702" expanded="true" signature="922:978" placeholder="SELECT count..PDF_LINKS..." />
+            <marker date="1485773774702" expanded="true" signature="1046:1128" placeholder="SELECT NAME ..PDF_LINKS..." />
+            <marker date="1485773774702" expanded="true" signature="1198:1251" placeholder="DELETE FROM ..." />
+            <marker date="1485773774702" expanded="true" signature="1325:1427" placeholder="SELECT UPLOA..PDF_LINKS..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/ipunagri/support/parsers/html/IPUParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="618" max-vertical-offset="2064">
+          <caret line="37" column="89" selection-start-line="37" selection-start-column="89" selection-end-line="37" selection-end-column="89" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="2802" max-vertical-offset="4656">
+          <caret line="100" column="21" selection-start-line="100" selection-start-column="21" selection-end-line="100" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.1.1.RELEASE/spring-context-4.1.1.RELEASE.jar!/org/springframework/scheduling/support/DelegatingErrorHandlingRunnable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2763819" vertical-offset="665" max-vertical-offset="864">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+>>>>>>> efade8f6d7eba5ecea58e2e4e50bf424b465b675
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/ipunagri/services/PDFLinkDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0" vertical-offset="1320" max-vertical-offset="3744">
+          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+=======
+        <state vertical-scroll-proportion="0.03975535" vertical-offset="814" max-vertical-offset="2184">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+>>>>>>> efade8f6d7eba5ecea58e2e4e50bf424b465b675
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.37824675" vertical-offset="535" max-vertical-offset="2040">
+          <caret line="32" column="83" selection-start-line="32" selection-start-column="83" selection-end-line="32" selection-end-column="83" />
+=======
+        <state vertical-scroll-proportion="0.612013" vertical-offset="1399" max-vertical-offset="2040">
+          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1109,16 +1301,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/ipunagri/services/PDFLinkDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1320" max-vertical-offset="3744">
+        <state vertical-scroll-proportion="0.33027524" vertical-offset="1992" max-vertical-offset="3744">
           <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37824675" vertical-offset="535" max-vertical-offset="2040">
-          <caret line="32" column="83" selection-start-line="32" selection-start-column="83" selection-end-line="32" selection-end-column="83" />
+>>>>>>> efade8f6d7eba5ecea58e2e4e50bf424b465b675
           <folding />
         </state>
       </provider>

@@ -28,9 +28,15 @@
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.postgresql.Driver"/>
+<<<<<<< HEAD
         <property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + @dbUrl.getPath() }"/>
         <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
         <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
+=======
+        <property name="url" value="jdbc:postgresql://localhost:5432/ipu_simplified"/>
+        <property name="username" value="postgres"/>
+        <property name="password" value="toor"/>
+>>>>>>> efade8f6d7eba5ecea58e2e4e50bf424b465b675
     </bean>
 
 
