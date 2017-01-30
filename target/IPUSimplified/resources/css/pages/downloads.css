@@ -1,0 +1,47 @@
+#tabs-container {
+  width: 100%;
+  padding-top: 30px;
+  margin-left: auto;
+  margin-right: auto; }
+  #tabs-container md-tabs {
+    height: 160%; }
+    #tabs-container md-tabs .md-tab {
+      font-weight: 600; }
+    #tabs-container md-tabs md-tabs-content-wrapper {
+      height: 100%;
+      width: auto; }
+    #tabs-container md-tabs md-tab-content {
+      width: 90%;
+      padding-left: 5%;
+      padding-right: 5%;
+      padding-bottom: 5%;
+      margin-top: 2%;
+      margin-top: 2%; }
+
+td,
+th {
+  font-size: 0.9em;
+  text-align: center; }
+  td:nth-of-type(2),
+  th:nth-of-type(2) {
+    padding-left: 20px; }
+
+td:nth-child(0n+1) {
+  font-weight: 600; }
+
+.pagination {
+  font-size: 1.4em; }
+
+.pagination li {
+  border-radius: 0% !important;
+}
+
+.pagination li.active {
+  background: #7071ff;
+  color: #FFF;
+}
+
+html.md-default-theme, html, body.md-default-theme, body {
+  background-color: #FFF; }
+
+/*# sourceMappingURL=downloads.css.map */

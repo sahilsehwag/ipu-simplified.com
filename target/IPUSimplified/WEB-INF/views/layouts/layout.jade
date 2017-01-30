@@ -1,0 +1,12 @@
+html
+	include head.jade
+	body(ng-app='app' ng-controller='mainController' ng-cloak)
+		include appmenu.jade
+		include menu.jade
+
+		include header.jade
+
+		main
+			block main
+
+		include footer.jade

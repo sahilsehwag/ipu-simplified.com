@@ -91,10 +91,10 @@ public class PDFLinkDao extends Dao<PDFLink> {
     public ArrayList<String> getLastFetchDatesRows(String pdfType, Date date) {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
-            Query query = session.getNamedNativeQuery("PDFLink.getByDate");
+            Query query = session.getNamedQuery("PDFLink.getByDate");
 
             query.setParameter("pdfType", pdfType);
-            query.setParameter("uploadDate", getCorrectDate(date));
+            query.setParameter("uploadDate", date);
 
             List rows = query.getResultList();
             ArrayList<String> urlRows = new ArrayList<>();
