@@ -97,7 +97,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.2.2.Final</version>
+            <version>4.2.8.Final</version>
         </dependency>
 
         <dependency>
@@ -144,10 +144,10 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                             <groupId>com.github.jsimone</groupId>
-                            <artifactId>webapp-runner</artifactId>
+                                    <groupId>com.github.jsimone</groupId>
+                                    <artifactId>webapp-runner</artifactId>
                                     <version>8.0.30.2</version>
-                         <destFileName>webapp-runner.jar</destFileName>
+                                    <destFileName>webapp-runner.jar</destFileName>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
@@ -165,24 +165,24 @@
             </plugin>
 
             <!--<plugin>-->
-                <!--<groupId>com.github.warmuuh</groupId>-->
-                <!--<artifactId>libsass-maven-plugin</artifactId>-->
-                <!--<version>0.2.4-libsass_3.3.4</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<phase>generate-resources</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>compile</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-                <!--<configuration>-->
-                    <!--<inputPath>${project.basedir}/src/main/webapp/resources/sass/</inputPath>-->
-                    <!--<outputPath>${project.basedir}/target/Ipunagri/resources/css/</outputPath>-->
-                    <!--<outputStyle>compressed</outputStyle>-->
-                    <!--<inputSyntax>sass</inputSyntax>-->
-                    <!--<failOnError>true</failOnError>-->
-                <!--</configuration>-->
+            <!--<groupId>com.github.warmuuh</groupId>-->
+            <!--<artifactId>libsass-maven-plugin</artifactId>-->
+            <!--<version>0.2.4-libsass_3.3.4</version>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<phase>generate-resources</phase>-->
+            <!--<goals>-->
+            <!--<goal>compile</goal>-->
+            <!--</goals>-->
+            <!--</execution>-->
+            <!--</executions>-->
+            <!--<configuration>-->
+            <!--<inputPath>${project.basedir}/src/main/webapp/resources/sass/</inputPath>-->
+            <!--<outputPath>${project.basedir}/target/Ipunagri/resources/css/</outputPath>-->
+            <!--<outputStyle>compressed</outputStyle>-->
+            <!--<inputSyntax>sass</inputSyntax>-->
+            <!--<failOnError>true</failOnError>-->
+            <!--</configuration>-->
             <!--</plugin>-->
         </plugins>
     </build>
