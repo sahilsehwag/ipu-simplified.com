@@ -25,12 +25,21 @@
         <property name="renderExceptions" value="true"/>
     </bean>
 
+    <bean class="java.net.URI" id="dbUrl">
+        <constructor-arg value="${DATABASE_URL}"/>
+    </bean>
+
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="org.postgresql.Driver"/>
-        <property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + @dbUrl.getPath() }"/>
+        <property name="driverClassName" value="${database.driverClassName}"/>
+        <property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
         <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
         <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
+        <property name="maxActive" value="10"/>
+        <property name="maxIdle" value="5"/>
+        <property name="minIdle" value="2"/>
+        <property name="initialSize" value="5"/>
+        <property name="removeAbandoned" value="true"/>
     </bean>
 
 
